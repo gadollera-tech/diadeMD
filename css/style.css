@@ -19,3 +19,31 @@
 .rebrandNote{background:var(--soft);border-left:4px solid var(--mag);padding:14px 16px;border-radius:12px;color:var(--teal2)}
 .heroLogo{background:#08131bcc;padding:12px 16px;border-radius:18px}
 .footbrand img{background:#fff;object-fit:contain}
+
+/* Private beta access gate */
+html.accessLocked,html.accessLocked body{overflow:hidden}
+.accessGate{position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at 50% 20%,#12313a,#07131d 58%,#040b10);display:grid;place-items:center;padding:24px}
+.accessPanel{width:min(520px,100%);background:rgba(255,255,255,.98);border-radius:28px;padding:34px;box-shadow:0 30px 100px rgba(0,0,0,.42);text-align:center;color:var(--ink)}
+.accessPanel>img{width:min(330px,88%);max-height:120px;object-fit:contain;margin:0 auto 18px}
+.accessLabel{display:inline-block;color:var(--mag);font-size:.7rem;letter-spacing:.14em;font-weight:900}
+.accessPanel h1{color:var(--teal2);font-size:2rem;line-height:1.1;margin:10px 0}
+.accessPanel p{color:var(--muted)}
+.accessPanel form{text-align:left;margin-top:24px}
+.accessPanel label{display:block;font-size:.75rem;font-weight:850;color:var(--teal2);margin-bottom:5px}
+.accessRow{display:grid;grid-template-columns:1fr auto;gap:8px}
+.accessRow input{border:1px solid var(--line);border-radius:11px;padding:12px;outline:none}
+.accessRow input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(11,111,121,.1)}
+.accessRow button{border:0;border-radius:11px;background:var(--teal);color:#fff;padding:0 20px;font-weight:850;cursor:pointer}
+#medudemyAccessError{display:block;min-height:20px;color:var(--mag);margin-top:7px}
+.accessFoot{font-size:.72rem;margin:17px 0 0!important;color:#809096!important}
+@media(max-width:560px){.accessPanel{padding:26px 20px}.accessRow{grid-template-columns:1fr}.accessRow button{padding:12px}.accessPanel h1{font-size:1.65rem}}
+
+/* Current / future content states */
+.stage.future{background:linear-gradient(145deg,#f7f7f5,#fff);border-style:dashed}
+.stage.future>b{color:var(--mag)}
+.qComingSection{padding-bottom:0}
+.comingSoonCard{display:flex;justify-content:space-between;gap:28px;align-items:center;border:1px dashed rgba(140,0,92,.35);background:linear-gradient(135deg,var(--pink),#fff);border-radius:22px;padding:26px 30px}
+.comingSoonCard h2{color:var(--teal2);margin:7px 0}
+.comingSoonCard p{color:var(--muted);margin-bottom:0;max-width:760px}
+.comingBadge{white-space:nowrap;border-radius:999px;background:var(--mag);color:#fff;padding:9px 13px;font-size:.7rem;font-weight:900;letter-spacing:.08em}
+@media(max-width:700px){.comingSoonCard{align-items:flex-start;flex-direction:column}}
