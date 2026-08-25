@@ -1,12 +1,9 @@
-# DiadeMD — Integumentary Histology Update
+# DiadeMD v3 Comprehensive Static Prototype
 
-Included:
-- `index.html` — updated DiadeMD home page
-- `histology-integumentary.html` — full reviewer
-- `histology-quiz.html` — 35 MCQs + 15 identification prompts
-- `assets/references/Histology_Integumentary.pdf` — exact uploaded source PDF as downloadable reference
-- `css/style.css` — responsive styling
+Open `index.html` or run `python -m http.server 8000`.
 
-Open `index.html` to start.
+Included: Home, dashboard, NMAT, med school, all 12 PLE subjects, 12 starter reviewers, 12 original sample questions, Free/Pro local preview, AI/file demo, resource directory, and standards.
 
-The reviewer and questions are based on the uploaded Integumentary System histology chapter. For figures and photomicrographs, use the included source PDF.
+Important: accounts, payments, secure premium access, cloud storage, and real AI are not connected. The Pro switch uses browser localStorage only.
+
+Before public launch, medically review all content, add citations and version dates, and verify current PRC/CEM details.
