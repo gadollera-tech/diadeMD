@@ -1,0 +1,11 @@
+MeduDemy Color Palette
+=======================
+Teal         #0B6F79
+Deep Teal    #075760
+Magenta      #8C005C
+Deep Magenta #650042
+Soft Teal    #E3F3F2
+Soft Pink    #F7E7F1
+Warm Cream   #FBF7F3
+Dark Navy    #07131D
+Charcoal     #20282B
