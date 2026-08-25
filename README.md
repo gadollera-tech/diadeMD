@@ -15,3 +15,35 @@ Before public launch, medically review all content, add citations and version da
 - `js/data.js` — new Integumentary reviewer entry and 40 source-based QBank questions
 - `medschool.html` — featured launch card for the new module
 - `qbank.html` / `js/app.js` — subject deep-link support and expanded practice-library copy
+
+
+## Brand kit
+The `brand-kit/` folder contains approved MeduDemy logo variations, icons, social profile assets, color palette, and usage guidance.
+
+
+## Private access-code gate
+
+This build now opens behind a client-side access-code screen.
+
+Temporary access code:
+`MEDUDEMY-BETA`
+
+To change it:
+1. Open `owner-tools/access-code-generator.html`.
+2. Enter the code you want to share.
+3. Copy the generated SHA-256 hash.
+4. Open `js/access.js`.
+5. Replace the value of `ACCESS_HASH`.
+
+Important: because this is a static HTML/JS site, this is a **casual private-beta gate**, not strong security. A technically skilled person can bypass client-side protection. Do not place patient-identifying data, confidential documents, private passwords, or other sensitive material behind this alone. For true restricted access, use backend authentication such as Supabase Auth.
+
+## QBank scope
+
+The old placeholder PLE sampler was removed. The PLE Question Bank is now marked **Coming Soon**.
+
+Current QBank:
+- Histology • Integumentary System — 40 questions
+
+## Current positioning
+
+MeduDemy is presented as an **ongoing medical-school vault / diary / learning lab** that grows alongside medical school.
