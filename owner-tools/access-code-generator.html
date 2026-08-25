@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MeduDemy Access Code Generator</title>
+<style>
+body{font-family:system-ui;background:#07131d;color:#fff;margin:0;padding:40px}main{max-width:720px;margin:auto;background:#0d2029;padding:30px;border-radius:20px}
+input,button,textarea{font:inherit;width:100%;padding:12px;border-radius:10px;border:1px solid #31505a;box-sizing:border-box;margin:8px 0}
+button{background:#0b6f79;color:#fff;font-weight:800;cursor:pointer}textarea{min-height:120px}
+small{color:#a9bec4}
+</style></head><body><main>
+<h1>MeduDemy access-code hash generator</h1>
+<p>Enter the private code you want to give your testers. This page runs locally in your browser.</p>
+<input id="code" type="password" placeholder="Your new access code">
+<button id="make">Generate SHA-256 hash</button>
+<textarea id="out" readonly placeholder="Hash will appear here"></textarea>
+<p><small>Paste the generated hash into <code>js/access.js</code>, replacing the value of <code>ACCESS_HASH</code>. This is only a static-site gate and can be bypassed by someone who knows how to inspect/edit the site code. Use real backend authentication for sensitive/private data.</small></p>
+<script>
+async function hash(text){const d=new TextEncoder().encode(text);const x=await crypto.subtle.digest('SHA-256',d);return [...new Uint8Array(x)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+document.querySelector('#make').onclick=async()=>{document.querySelector('#out').value=await hash(document.querySelector('#code').value)}
+</script></main></body></html>
