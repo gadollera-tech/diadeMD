@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Interactive NMAT practice modes based on the uploaded CEM practice set.">
+<meta name="theme-color" content="#0b6f79">
+<title>NMAT Practice Tests | MeduDemy</title>
+<link rel="icon" href="assets/images/medudemy-icon.png">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/access.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/nmat-practice-data.js"></script>
+<script defer src="js/app.js"></script>
+<script defer src="js/nmat-practice.js"></script>
+</head>
+<body data-page="nmat-practice">
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="container nav"><a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="nmat.html" class="active">NMAT</a><a href="medschool.html">Med School</a><a href="ple.html">PLE</a><a href="reviewers.html">Reviewers</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a><a href="pricing.html">Premium</a></nav><button class="plan" id="planChip"><i></i><span data-plan>Free</span></button></div></header>
+<main id="main">
+<section class="pageHero nmatPracticeHero">
+  <div class="container">
+    <div class="crumbs"><a href="nmat.html">NMAT</a><span>›</span><b>Practice Tests</b></div>
+    <span class="eyebrow light">CEM PRACTICE SET • PART I + PART II</span>
+    <h1>Practice it your way.</h1>
+    <p>Use the uploaded 2014 CEM practice set as an untimed drill, a custom-timed section, or a full mock-style session. The source PDF itself does not specify time limits here, so all timers on this page are custom practice timers—not official NMAT timing.</p>
+    <div class="actions"><a class="btn lightbtn" href="#modes">Choose a mode</a><a class="btn ghost" href="assets/references/nmat/cem-practice-set/CEM_NMAT_Practice_Set_Part_1_and_2_2014.pdf" download>Download source PDF</a></div>
+  </div>
+</section>
+
+<section class="section" id="modes">
+<div class="container">
+  <div class="heading"><span class="eyebrow">360 QUESTIONS • 8 SUBTESTS</span><h2>Choose how you want to practice.</h2></div>
+
+  <div class="nmatModeGrid">
+    <article class="nmatModeCard">
+      <span class="modeNo">01</span><h3>Untimed Practice</h3>
+      <p>Choose one subtest. Answer at your own pace and optionally check each item immediately.</p>
+      <label>Subtest<select id="practiceSection"></select></label>
+      <button class="btn" id="startPractice">Start untimed</button>
+    </article>
+
+    <article class="nmatModeCard featuredMode">
+      <span class="modeNo">02</span><h3>Timed Section</h3>
+      <p>Choose one subtest and set your own countdown. Feedback stays hidden until you submit.</p>
+      <label>Subtest<select id="timedSection"></select></label>
+      <label>Practice timer (minutes)<input id="timedMinutes" type="number" min="1" max="300" value="30"></label>
+      <button class="btn" id="startTimed">Start timed section</button>
+    </article>
+
+    <article class="nmatModeCard">
+      <span class="modeNo">03</span><h3>Mock Exam</h3>
+      <p>Run Part I, Part II, or all 360 questions continuously with no answer feedback until submission.</p>
+      <label>Scope<select id="mockScope"><option value="part1">Part I — 160 items</option><option value="part2">Part II — 200 items</option><option value="full">Full Set — 360 items</option></select></label>
+      <label>Custom total timer (minutes)<input id="mockMinutes" type="number" min="1" max="600" value="180"></label>
+      <button class="btn" id="startMock">Start mock</button>
+    </article>
+
+    <article class="nmatModeCard mistakeMode">
+      <span class="modeNo">04</span><h3>Review Mistakes</h3>
+      <p>Revisit items you missed in your latest completed session.</p>
+      <p class="mistakeCount" id="mistakeCount">No completed session yet.</p>
+      <button class="btn outline" id="startMistakes" disabled>Review mistakes</button>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="section tint">
+<div class="container">
+  <div class="heading"><span class="eyebrow">PRACTICE LIBRARY</span><h2>Part I and Part II subtests</h2></div>
+  <div class="nmatSectionGrid" id="sectionCards"></div>
+</div>
+</section>
+
+<section class="section sourceNoteSection">
+<div class="container sourceNote">
+  <div><span class="eyebrow">SOURCE & USE NOTE</span><h2>CEM practice material, adapted for private study.</h2>
+  <p>Source: Center for Educational Measurement, Inc. (CEM), 2014 NMAT Practice Set. This MeduDemy interface uses the source page images and answer key for personal/educational practice. It is not an official CEM version and does not imply CEM endorsement.</p></div>
+  <a class="btn outline" href="assets/references/nmat/cem-practice-set/CEM_NMAT_Practice_Set_Part_1_and_2_2014.pdf" download>Keep original PDF</a>
+</div>
+</section>
+
+<section class="testRunner" id="testRunner" hidden>
+  <div class="runnerTop">
+    <div><a href="#" id="exitTest">← Exit</a><span id="runnerMode"></span></div>
+    <div class="runnerTimer" id="runnerTimer">Untimed</div>
+    <div><span id="runnerProgress"></span><button id="submitTestTop">Submit</button></div>
+  </div>
+  <div class="runnerLayout">
+    <aside class="runnerSide">
+      <span class="eyebrow">NAVIGATION</span>
+      <h2 id="runnerTitle">Practice</h2>
+      <p id="runnerSubtitle"></p>
+      <div class="runnerStats"><span><small>Answered</small><b id="answeredCount">0</b></span><span><small>Marked</small><b id="markedCount">0</b></span></div>
+      <div class="questionPalette" id="questionPalette"></div>
+      <button class="btn outline fullBtn" id="submitTestSide">Submit session</button>
+    </aside>
+
+    <section class="runnerQuestion">
+      <div class="questionHeader">
+        <div><span class="eyebrow" id="questionSection"></span><h2 id="questionTitle">Question 1</h2></div>
+        <button class="markBtn" id="markQuestion">☆ Mark for review</button>
+      </div>
+
+      <div class="sourcePageToolbar">
+        <span id="sourcePageLabel">Source page</span>
+        <div><button id="zoomOut">−</button><span id="zoomLabel">100%</span><button id="zoomIn">+</button><a id="openPage" target="_blank">Open page ↗</a></div>
+      </div>
+      <div class="sourcePageViewport"><img id="sourcePageImage" alt="Source practice-set page"></div>
+
+      <div class="answerPanel">
+        <p>Select your answer for <b id="answerQuestionLabel">Question 1</b>.</p>
+        <div class="answerChoices" id="answerChoices"></div>
+        <div class="practiceFeedback" id="practiceFeedback"></div>
+        <div class="runnerActions">
+          <button class="btn outline" id="prevQuestion">← Previous</button>
+          <button class="btn outline" id="checkAnswer" hidden>Check answer</button>
+          <button class="btn" id="nextQuestion">Next →</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<dialog class="dialog resultDialog" id="nmatResultDialog">
+  <button class="close">×</button>
+  <span class="eyebrow">SESSION RESULTS</span>
+  <h2 id="resultTitle">Practice complete</h2>
+  <div class="resultHero"><b id="resultScore">0 / 0</b><span id="resultPct">0%</span></div>
+  <div class="resultBreakdown" id="resultBreakdown"></div>
+  <p id="resultTiming"></p>
+  <div class="actions"><button class="btn" id="reviewWrong">Review wrong items</button><button class="btn outline" id="closeResults">Done</button></div>
+</dialog>
+</main>
+<footer><div class="container foot"><div class="footbrand"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"><p>An ongoing medical-school vault for reviewers, QBank sets, references, files, and learning experiments.</p></div><div><b>Study</b><a href="nmat.html">NMAT</a><a href="medschool.html">Med School</a><a href="reviewers.html">Reviewers</a></div><div><b>Platform</b><a href="dashboard.html">Dashboard</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a></div><div><b>Trust</b><a href="resources.html">Resources</a><a href="about.html">About</a></div></div><div class="container footbottom"><span>© <span data-year></span> MeduDemy</span><span>Learn. Review. Become.</span></div></footer><div class="toast" id="toast"></div>
+</body></html>

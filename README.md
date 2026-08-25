@@ -47,3 +47,20 @@ Current QBank:
 ## Current positioning
 
 MeduDemy is presented as an **ongoing medical-school vault / diary / learning lab** that grows alongside medical school.
+
+## NMAT interactive practice module
+
+Added `nmat-practice.html` with:
+- Untimed subtest practice
+- Custom-timed section practice
+- Mock mode for Part I, Part II, or all 360 items
+- Automatic scoring from the included answer key
+- Mark-for-review navigation
+- Review-mistakes mode
+- Local-only latest-session result storage
+- Source-page image viewer so diagrams/figures remain faithful to the PDF
+- Downloadable source PDF
+
+The source document does not provide time limits in the included general directions, so the practice timers are intentionally user-defined and are not labeled as official NMAT timing.
+
+Source: Center for Educational Measurement, Inc. (CEM), 2014 practice set. The included copyright notice permits personal/educational reproduction with CEM identified as source, while prohibiting commercial/for-profit redistribution without written permission.
