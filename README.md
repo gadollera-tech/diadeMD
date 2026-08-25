@@ -1,4 +1,4 @@
-# DiadeMD v3 Comprehensive Static Prototype
+# MeduDemy v3 Comprehensive Static Prototype
 
 Open `index.html` or run `python -m http.server 8000`.
 
@@ -10,7 +10,7 @@ Before public launch, medically review all content, add citations and version da
 
 
 ## Added: Integumentary Histology module
-- `histology-integumentary.html` — full chapter-based reviewer using the existing DiadeMD visual system
+- `histology-integumentary.html` — full chapter-based reviewer using the existing MeduDemy visual system
 - `assets/references/Histology_Integumentary.pdf` — uploaded course PDF, available as a download
 - `js/data.js` — new Integumentary reviewer entry and 40 source-based QBank questions
 - `medschool.html` — featured launch card for the new module
