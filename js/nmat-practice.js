@@ -1,9 +1,10 @@
 (() => {
   const D = window.NMAT_PRACTICE;
+  const T = window.NMAT_TEXT_DATA || {questions:{},passages:{}};
   if (!D) return;
   const $ = s => document.querySelector(s);
   const storageKey = 'medudemyNmatPracticeLast';
-  let session = null, timerId = null, zoom = 1;
+  let session = null, timerId = null, zoom = 1, currentView = 'text';
 
   const sectionById = id => D.sections.find(s => s.id === id);
   const pageSrc = p => `assets/references/nmat/cem-practice-set/pages/page-${String(p).padStart(3,'0')}.webp`;
@@ -80,6 +81,56 @@
     p.querySelectorAll('button').forEach(b => b.onclick = () => {session.index=+b.dataset.i;render();});
   }
 
+  function escapeHtml(str='') {
+    return str.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function renderQuestionContent(q) {
+    const key=`${q.sectionId}-${q.num}`;
+    const item=T.questions[key] || {mode:'image',page:q.page};
+    const textBtn=document.querySelector('[data-view="text"]');
+    const sourceBtn=document.querySelector('[data-view="source"]');
+    const textView=$('#textQuestionView'), sourceView=$('#sourceQuestionView');
+    const hasText=!!item.stem;
+
+    textBtn.disabled=!hasText;
+    if (!hasText || item.mode==='image') currentView='source';
+
+    textBtn.classList.toggle('active',currentView==='text');
+    sourceBtn.classList.toggle('active',currentView==='source');
+    textView.hidden=currentView!=='text';
+    sourceView.hidden=currentView!=='source';
+
+    if (hasText) {
+      $('#typedQuestionMeta').textContent =
+        item.mode==='hybrid' ? 'TYPED QUESTION • ORIGINAL VISUAL AVAILABLE' :
+        item.mode==='text-context' ? 'TYPED QUESTION • READING COMPREHENSION' :
+        'TYPED FROM SOURCE';
+      $('#typedQuestionStem').textContent=item.stem;
+      $('#typedOptions').innerHTML=Object.entries(item.options||{}).map(([letter,text]) =>
+        `<div><b>${letter}</b><span>${escapeHtml(text)}</span></div>`).join('');
+      $('#hybridHint').hidden=item.mode!=='hybrid';
+
+      if (item.passage && T.passages[item.passage]) {
+        $('#passageBox').hidden=false;
+        $('#passageText').hidden=false;
+        $('#collapsePassage').textContent='Hide passage';
+        $('#passageText').innerHTML=T.passages[item.passage]
+          .split(/\n\s*\n/).map(p=>`<p>${escapeHtml(p).replace(/\n/g,' ')}</p>`).join('');
+      } else {
+        $('#passageBox').hidden=true;
+        $('#passageText').innerHTML='';
+      }
+    }
+
+    const src=pageSrc(q.page);
+    $('#sourcePageImage').src=src;
+    $('#openPage').href=src;
+    $('#sourcePageLabel').textContent=`Original source page ${q.page}`;
+    $('#sourcePageImage').style.width=`${zoom*100}%`;
+    $('#zoomLabel').textContent=`${Math.round(zoom*100)}%`;
+  }
+
   function render() {
     const q = session.questions[session.index], sec=sectionById(q.sectionId);
     $('#runnerTitle').textContent = session.mode==='mock' ? 'Mock Exam' : sec.name;
@@ -88,12 +139,7 @@
     $('#questionSection').textContent = `PART ${q.part} • ${q.sectionName.toUpperCase()}`;
     $('#questionTitle').textContent = `Question ${q.num}`;
     $('#answerQuestionLabel').textContent = `${q.sectionName} Question ${q.num}`;
-    $('#sourcePageLabel').textContent = `Original source page ${q.page}`;
-    const src = pageSrc(q.page);
-    $('#sourcePageImage').src = src;
-    $('#openPage').href = src;
-    $('#sourcePageImage').style.width = `${zoom*100}%`;
-    $('#zoomLabel').textContent = `${Math.round(zoom*100)}%`;
+    renderQuestionContent(q);
 
     const selected = session.responses[q.key];
     $('#answerChoices').innerHTML = q.choices.map(c => `<button class="${selected===c?'selected':''}" data-choice="${c}">${c}</button>`).join('');
@@ -200,6 +246,18 @@
     let last=null;try{last=JSON.parse(localStorage.getItem(storageKey)||'null')}catch{}
     $('#nmatResultDialog').close();
     if(last?.wrong?.length) start('mistakes',[],null,last.wrong);
+  };
+
+
+  document.querySelectorAll('#questionDisplaySwitch button').forEach(btn => btn.onclick=()=>{
+    if(btn.disabled)return;
+    currentView=btn.dataset.view;
+    render();
+  });
+  $('#collapsePassage').onclick=()=>{
+    const body=$('#passageText');
+    body.hidden=!body.hidden;
+    $('#collapsePassage').textContent=body.hidden?'Show passage':'Hide passage';
   };
 
   fillSelectors();updateMistakes();
