@@ -25,22 +25,58 @@
 <div class="pastExamGrid" id="pastExamGrid"></div>
 </div></section>
 
-<section class="hsciRunner" id="hsciRunner" hidden>
-<div class="runnerTop"><div><a href="#" id="exitHsci">← Exit</a><span id="hsciMode"></span></div><div class="runnerTimer" id="hsciTimer">Untimed</div><div><span id="hsciProgress"></span><button id="submitHsciTop">Submit</button></div></div>
-<div class="runnerLayout">
-<aside class="runnerSide"><span class="eyebrow">HSci 208</span><h2 id="hsciRunnerTitle"></h2><p id="hsciRunnerSubtitle"></p><div class="runnerStats"><span><small>Answered</small><b id="hsciAnswered">0</b></span><span><small>Marked</small><b id="hsciMarked">0</b></span></div><div class="questionPalette" id="hsciPalette"></div><button class="btn outline fullBtn" id="submitHsciSide">Submit session</button></aside>
-<section class="runnerQuestion">
-<div class="questionHeader"><div><span class="eyebrow" id="hsciSystemLabel"></span><h2 id="hsciQuestionNumber"></h2></div><button class="markBtn" id="markHsci">☆ Mark for review</button></div>
-<div class="sourceBadgeRow"><span id="hsciSourceBadge"></span><a id="hsciSourceDownload" download>Original file ↗</a></div>
-<article class="hsciQuestionCard">
-<small id="hsciSourceNumber"></small><h3 id="hsciPrompt"></h3>
-<div id="hsciOptions" class="hsciOptions"></div><button class="btn outline checkHsciBtn" id="checkHsciAnswer">Check answer & rationale</button>
-<div id="recallBox" class="recallBox" hidden><textarea id="recallInput" placeholder="Type your recall answer here..."></textarea><button class="btn outline" id="revealRecall">Reveal source answer</button><div id="recallAnswer" hidden></div></div>
-<div id="essayBox" class="recallBox" hidden><textarea id="essayInput" rows="8" placeholder="Sketch/describe your answer here for self-review..."></textarea></div>
-<div class="sourceKeyFeedback" id="sourceKeyFeedback"></div><div class="rationalePanel" id="rationalePanel"></div>
-</article>
-<div class="runnerActions"><button class="btn outline" id="hsciPrev">← Previous</button><button class="btn" id="hsciNext">Next →</button></div>
-</section></div></section>
+<section class="hsciRunner duoRunner" id="hsciRunner" hidden>
+  <div class="duoRunnerTop">
+    <button class="iconExit" id="exitHsci">×</button>
+    <div class="duoProgressTrack"><div id="duoProgressFill"></div></div>
+    <div class="duoTopStat">⚡ <b id="duoSessionXP">0</b></div>
+  </div>
+
+  <div class="duoQuestionShell">
+    <div class="duoQuestionMeta">
+      <span id="hsciMode"></span><span>•</span><span id="hsciProgress"></span>
+      <span class="duoTimerInline" id="hsciTimer">Untimed</span>
+    </div>
+
+    <div class="duoPromptHead">
+      <div><span class="eyebrow" id="hsciSystemLabel"></span><h1 id="hsciQuestionNumber"></h1></div>
+      <button class="duoMark" id="markHsci">☆</button>
+    </div>
+
+    <div class="duoSourceRow">
+      <small id="hsciSourceNumber"></small>
+      <span id="hsciSourceBadge"></span>
+      <a id="hsciSourceDownload" download>Source ↗</a>
+    </div>
+
+    <article class="duoQuestionCard">
+      <h2 id="hsciPrompt"></h2>
+      <div id="hsciOptions" class="duoChoices"></div>
+      <div id="recallBox" class="recallBox" hidden>
+        <textarea id="recallInput" placeholder="Type your answer..."></textarea>
+        <button class="btn outline" id="revealRecall">Reveal source answer</button>
+        <div id="recallAnswer" hidden></div>
+      </div>
+      <div id="essayBox" class="recallBox" hidden><textarea id="essayInput" rows="8" placeholder="Type your response..."></textarea></div>
+      <div class="sourceKeyFeedback" id="sourceKeyFeedback"></div>
+      <div class="rationalePanel" id="rationalePanel"></div>
+    </article>
+
+    <div class="duoBottomBar">
+      <div class="duoFeedbackHint" id="duoFeedbackHint">Choose the best answer.</div>
+      <div>
+        <button class="duoSecondary" id="hsciPrev">Back</button>
+        <button class="duoCheck" id="checkHsciAnswer">Check</button>
+        <button class="duoContinue" id="hsciNext">Continue</button>
+      </div>
+    </div>
+
+    <button id="submitHsciTop" hidden>Submit</button>
+    <button id="submitHsciSide" hidden>Submit</button>
+    <div id="hsciRunnerTitle" hidden></div><div id="hsciRunnerSubtitle" hidden></div>
+    <div id="hsciAnswered" hidden></div><div id="hsciMarked" hidden></div><div id="hsciPalette" hidden></div>
+  </div>
+</section>
 
 <dialog class="dialog resultDialog" id="hsciResultDialog"><button class="close">×</button><span class="eyebrow">FINALS PRACTICE RESULTS</span><h2 id="hsciResultTitle">Session complete</h2><div class="resultHero"><b id="hsciCompletion">0 / 0</b><span>answered</span></div><div id="keyedScoreBox" class="keyedScoreBox"></div><div class="resultBreakdown" id="hsciBreakdown"></div><p id="hsciResultNote"></p><div class="actions"><button class="btn" id="hsciReview">Review session</button><button class="btn outline" id="hsciDone">Done</button></div></dialog>
 </main><footer><div class="container foot"><div class="footbrand"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"><p>An ongoing medical-school vault for reviewers, QBank sets, references, files, and learning experiments.</p></div><div><b>Study</b><a href="medschool.html">Med School</a><a href="hsci208.html">HSci 208</a><a href="reviewers.html">Reviewers</a></div><div><b>Platform</b><a href="dashboard.html">Dashboard</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a></div><div><b>Trust</b><a href="resources.html">Resources</a><a href="about.html">About</a></div></div><div class="container footbottom"><span>© <span data-year></span> MeduDemy</span><span>Learn. Review. Become.</span></div></footer><div class="toast" id="toast"></div></body></html>

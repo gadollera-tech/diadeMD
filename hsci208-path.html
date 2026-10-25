@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HSci 208 Learning Path | MeduDemy</title>
+<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css">
+<script defer src="js/access.js"></script><script defer src="js/data.js"></script><script defer src="js/app.js"></script>
+</head><body data-page="hsci-path"><a class="skip" href="#main">Skip to content</a><header><div class="container nav"><a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="nmat.html">NMAT</a><a href="medschool.html" class="active">Med School</a><a href="ple.html">PLE</a><a href="reviewers.html">Reviewers</a><a href="qbank.html">QBank</a></nav><button class="plan"><i></i><span>Beta</span></button></div></header>
+<main id="main">
+<section class="duoPathHero"><div class="container">
+  <div>
+    <span class="eyebrow light">HSci 208 • FINALS QUEST</span>
+    <h1>Climb the path to finals.</h1>
+    <p>Short lessons, visible progress, instant feedback. Same exam pool—less intimidating.</p>
+  </div>
+  <div class="pathStats">
+    <span>🔥 <b id="pathStreak">1</b> streak</span>
+    <span>⚡ <b id="pathXP">0</b> XP</span>
+  </div>
+</div></section>
+<section class="section pathSection"><div class="container pathWrap">
+
+<section class="pathUnit" data-system="Integumentary">
+  <div class="unitHeader">
+    <div class="unitIcon">🧴</div>
+    <div><small>UNIT</small><h2>Skin & Barrier</h2><p>Embryology, physiology, wounds, burns, pigmentation</p></div>
+    <div class="unitXP"><b>350</b><span>XP available</span></div>
+  </div>
+  <div class="lessonPath"><a class="lessonNode" href="hsci208-finals.html?set=integ-quiz-1"><span>1</span><div><b>Doc Ade — Integ Quiz 1</b><small>35 questions</small></div><em>→</em></a><a class="lessonNode" href="hsci208-finals.html?set=integ-quiz-2"><span>2</span><div><b>Doc Ade — Integ Quiz 2</b><small>35 questions</small></div><em>→</em></a>
+    <a class="lessonNode challenge" href="hsci208-finals.html?system=Integumentary&mode=mix"><span>★</span><div><b>Integumentary Challenge</b><small>Mixed questions from this unit</small></div><em>→</em></a>
+  </div>
+</section>
+
+<section class="pathUnit" data-system="Musculoskeletal">
+  <div class="unitHeader">
+    <div class="unitIcon">💪</div>
+    <div><small>UNIT</small><h2>Muscle & Movement</h2><p>Membrane transport, skeletal/smooth muscle, ECM</p></div>
+    <div class="unitXP"><b>200</b><span>XP available</span></div>
+  </div>
+  <div class="lessonPath"><a class="lessonNode" href="hsci208-finals.html?set=ms-source-keyed"><span>1</span><div><b>Musculoskeletal & Membrane Physiology Quiz</b><small>30 questions</small></div><em>→</em></a><a class="lessonNode" href="hsci208-finals.html?set=biochem-ec-ic"><span>2</span><div><b>Doc Charlie — Biochemistry of EC & IC Communication</b><small>10 questions</small></div><em>→</em></a>
+    <a class="lessonNode challenge" href="hsci208-finals.html?system=Musculoskeletal&mode=mix"><span>★</span><div><b>Musculoskeletal Challenge</b><small>Mixed questions from this unit</small></div><em>→</em></a>
+  </div>
+</section>
+
+<section class="pathUnit" data-system="Immune">
+  <div class="unitHeader">
+    <div class="unitIcon">🛡️</div>
+    <div><small>UNIT</small><h2>Defense Systems</h2><p>Embryology, immunoglobulins, complement, hypersensitivity</p></div>
+    <div class="unitXP"><b>730</b><span>XP available</span></div>
+  </div>
+  <div class="lessonPath"><a class="lessonNode" href="hsci208-finals.html?set=immune-embryo"><span>1</span><div><b>Doc Ade — Immune System Quiz</b><small>55 questions</small></div><em>→</em></a><a class="lessonNode" href="hsci208-finals.html?set=immunoglobulins"><span>2</span><div><b>Doc Charlie — Immunoglobulins Exam</b><small>40 questions</small></div><em>→</em></a><a class="lessonNode" href="hsci208-finals.html?set=immune-physio"><span>3</span><div><b>Doc Medith — Immune System Exam</b><small>51 questions</small></div><em>→</em></a>
+    <a class="lessonNode challenge" href="hsci208-finals.html?system=Immune&mode=mix"><span>★</span><div><b>Immune Challenge</b><small>Mixed questions from this unit</small></div><em>→</em></a>
+  </div>
+</section>
+
+</div></section>
+</main><footer><div class="container foot"><div class="footbrand"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"><p>Ongoing medical-school vault, now with gamified practice.</p></div><div><b>Study</b><a href="hsci208-path.html">HSci 208 Path</a><a href="hsci208-finals.html">Practice</a></div><div><b>Vault</b><a href="reviewers.html">Reviewers</a><a href="resources.html">Resources</a></div></div><div class="container footbottom"><span>© <span data-year></span> MeduDemy</span><span>Learn. Review. Become.</span></div></footer>
+<script>
+(() => {
+ const xp=Number(localStorage.getItem('medudemyXP')||0), st=Number(localStorage.getItem('medudemyStreak')||1);
+ document.getElementById('pathXP').textContent=xp; document.getElementById('pathStreak').textContent=st;
+})();
+</script></body></html>

@@ -115,3 +115,18 @@ Important:
 - Review keys are study aids, not represented as professor-provided official keys.
 - The MSK source answer concerning T-tubules in smooth muscle is preserved as written, but the rationale visibly notes that standard physiology generally describes smooth muscle as lacking true T-tubules and using caveolae.
 - Timed mode hides rationales until submission; untimed mode allows `Check answer & rationale`.
+
+## v9 — Gamified learning UI
+
+MeduDemy now uses a Duolingo-inspired interaction model without copying Duolingo branding:
+- HSci 208 learning path with system units and lesson nodes
+- XP stored locally in the browser
+- streak indicator
+- one-question-at-a-time practice
+- large progress bar
+- raised answer-choice buttons
+- instant answer/rationale feedback in untimed mode
+- continue flow instead of traditional exam-navigation chrome
+- system challenge nodes for mixed drills
+
+The MeduDemy teal/magenta identity, source-key provenance, private access gate, and existing vault content are preserved.
