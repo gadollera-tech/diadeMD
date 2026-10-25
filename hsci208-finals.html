@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HSci 208 Finals Practice | MeduDemy</title><meta name="theme-color" content="#0b6f79">
-<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css?v=9.2">
-<script defer src="js/access.js"></script><script defer src="js/data.js"></script><script defer src="js/hsci208-data.js?v=9.2"></script><script defer src="js/app.js?v=9.2"></script><script defer src="js/hsci208-practice.js?v=9.2"></script>
+<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css?v=9.3">
+<script defer src="js/access.js"></script><script defer src="js/data.js"></script><script defer src="js/hsci208-data.js?v=9.3"></script><script defer src="js/app.js?v=9.3"></script><script defer src="js/hsci208-practice.js?v=9.3"></script>
 </head><body data-page="hsci208-finals"><a class="skip" href="#main">Skip to content</a><header><div class="container nav"><a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="nmat.html">NMAT</a><a href="medschool.html" class="active">Med School</a><a href="ple.html">PLE</a><a href="reviewers.html">Reviewers</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a><a href="pricing.html">Premium</a></nav><button class="plan" id="planChip"><i></i><span data-plan>Free</span></button></div></header>
 <main id="main">
 <section class="pageHero hsciFinalsHero"><div class="container">
@@ -13,10 +13,28 @@
 
 <section class="section" id="setup"><div class="container">
 <div class="practiceSetupGrid">
-<article class="practiceSetupCard"><span class="modeNo">01</span><h3>Previous Exam</h3><p>Take one uploaded exam exactly as its own set.</p><label>Exam<select id="setSelect"></select></label><button class="btn" id="startSet">Start untimed</button></article>
-<article class="practiceSetupCard featuredMode"><span class="modeNo">02</span><h3>Timed Exam</h3><p>Choose a source exam and set your own finals-practice timer.</p><label>Exam<select id="timedSetSelect"></select></label><label>Minutes<input id="timedMinutesHsci" type="number" min="1" max="300" value="30"></label><button class="btn" id="startTimedHsci">Start timed</button></article>
+<article class="practiceSetupCard"><span class="modeNo">01</span><h3>Previous Exam</h3><p>Take one uploaded exam exactly as its own set.</p><label>Exam<select id="setSelect"><option value="integ-quiz-1">Integumentary • Doc Ade — Integ Quiz 1 — 35 items</option>
+<option value="integ-quiz-2">Integumentary • Doc Ade — Integ Quiz 2 — 35 items</option>
+<option value="ms-source-keyed">Musculoskeletal • Musculoskeletal & Membrane Physiology Quiz — 30 items</option>
+<option value="biochem-ec-ic">Musculoskeletal • Doc Charlie — Biochemistry of EC & IC Communication — 10 items</option>
+<option value="immune-embryo">Immune • Doc Ade — Immune System Quiz — 55 items</option>
+<option value="immunoglobulins">Immune • Doc Charlie — Immunoglobulins Exam — 40 items</option>
+<option value="immune-physio">Immune • Doc Medith — Immune System Exam — 51 items</option></select></label><button class="btn" id="startSet">Start untimed</button></article>
+<article class="practiceSetupCard featuredMode"><span class="modeNo">02</span><h3>Timed Exam</h3><p>Choose a source exam and set your own finals-practice timer.</p><label>Exam<select id="timedSetSelect"><option value="integ-quiz-1">Integumentary • Doc Ade — Integ Quiz 1 — 35 items</option>
+<option value="integ-quiz-2">Integumentary • Doc Ade — Integ Quiz 2 — 35 items</option>
+<option value="ms-source-keyed">Musculoskeletal • Musculoskeletal & Membrane Physiology Quiz — 30 items</option>
+<option value="biochem-ec-ic">Musculoskeletal • Doc Charlie — Biochemistry of EC & IC Communication — 10 items</option>
+<option value="immune-embryo">Immune • Doc Ade — Immune System Quiz — 55 items</option>
+<option value="immunoglobulins">Immune • Doc Charlie — Immunoglobulins Exam — 40 items</option>
+<option value="immune-physio">Immune • Doc Medith — Immune System Exam — 51 items</option></select></label><label>Minutes<input id="timedMinutesHsci" type="number" min="1" max="300" value="30"></label><button class="btn" id="startTimedHsci">Start timed</button></article>
 <article class="practiceSetupCard"><span class="modeNo">03</span><h3>Finals Mix</h3><p>Randomize questions across one or more HSci 208 systems.</p><div class="systemChecks"><label><input type="checkbox" value="Integumentary" checked> Integumentary</label><label><input type="checkbox" value="Musculoskeletal" checked> Musculoskeletal</label><label><input type="checkbox" value="Immune" checked> Immune</label></div><label>Number of items<input id="mixCount" type="number" min="10" max="256" value="50"></label><button class="btn" id="startMix">Build 50-item mix</button></article>
-<article class="practiceSetupCard keyInfo"><span class="modeNo">KEY STATUS</span><h3>Source-faithful scoring</h3><p><b>Musculoskeletal PDF:</b> source-provided answers are available. Relationship/modified-TF items are auto-scored; recall items use reveal-and-self-check.</p><p><b>Word exam sets:</b> no explicit answer key was included, so selections are saved but not labeled correct/incorrect.</p></article>
+<article class="practiceSetupCard keyInfo">
+<span class="modeNo">ANSWER KEY PROVENANCE</span>
+<h3>Keys + rationales, clearly labeled.</h3>
+<p><b>Source Key:</b> answers already present in the uploaded source, including the MSK file.</p>
+<p><b>MeduDemy Review Key:</b> study answers and rationales added to previously unkeyed exam files.</p>
+<p><b>Instructor confirmation:</b> ambiguous items are flagged rather than force-scored.</p>
+</article>
 </div>
 </div></section>
 

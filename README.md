@@ -142,3 +142,15 @@ HSci 208 now has one dynamic response area:
 - Essay: open-response input only
 
 The practice page also uses `?v=9.2` cache-busting for GitHub Pages/browser asset refresh.
+
+## v9.3 — HSci 208 functional fix
+
+Fixed a JavaScript syntax error in `hsci208-practice.js` that prevented:
+- exam dropdown population
+- Start Untimed
+- Start Timed
+- Build Finals Mix
+- learning-path lesson launch
+
+Also added static fallback exam options and `?v=9.3` cache-busting.
+The JS file passes `node --check`.
