@@ -130,3 +130,7 @@ MeduDemy now uses a Duolingo-inspired interaction model without copying Duolingo
 - system challenge nodes for mixed drills
 
 The MeduDemy teal/magenta identity, source-key provenance, private access gate, and existing vault content are preserved.
+
+## v9.1 — MCQ response cleanup
+
+MCQ items now display only clickable answer choices. Textareas are shown only for true recall/open-response items.
