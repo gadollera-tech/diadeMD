@@ -87,3 +87,51 @@ html.accessLocked,html.accessLocked body{overflow:hidden}
 .resultBreakdown{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:18px 0}.resultBreakdown div{border:1px solid var(--line);border-radius:11px;padding:12px;display:grid;grid-template-columns:1fr auto;gap:3px}.resultBreakdown span{color:var(--teal2);font-weight:850}.resultBreakdown small{grid-column:1/-1;color:var(--muted)}
 @media(max-width:1000px){.nmatSectionGrid{grid-template-columns:repeat(2,1fr)}.runnerLayout{grid-template-columns:1fr}.runnerSide{position:relative;top:auto;height:auto;border-right:0;border-bottom:1px solid var(--line)}.questionPalette{grid-template-columns:repeat(10,1fr)}}
 @media(max-width:700px){.nmatModeGrid,.nmatSectionGrid{grid-template-columns:1fr}.sourceNote{grid-template-columns:1fr}.runnerTop{grid-template-columns:1fr auto;padding:0 12px}.runnerTop>div:first-child span{display:none}.runnerTop>div:last-child{display:none}.runnerQuestion{padding:22px 13px 70px}.questionPalette{grid-template-columns:repeat(8,1fr)}.questionHeader{flex-direction:column}.sourcePageToolbar{align-items:flex-start;flex-direction:column}.sourcePageViewport{padding:6px}.runnerActions{flex-wrap:wrap}.runnerActions .btn{flex:1}.resultBreakdown{grid-template-columns:1fr}}
+
+/* NMAT hybrid text/original-page question display */
+.questionDisplaySwitch{display:flex;gap:7px;margin:18px 0 10px}
+.questionDisplaySwitch button{border:1px solid var(--line);background:#fff;color:var(--teal2);border-radius:999px;padding:8px 12px;font-weight:850;cursor:pointer}
+.questionDisplaySwitch button.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.questionDisplaySwitch button:disabled{opacity:.35;cursor:not-allowed}
+.textQuestionView{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+.typedQuestion>small{color:var(--mag);font-size:.68rem;letter-spacing:.1em;font-weight:900}
+.typedQuestion h3{font-size:1.35rem;line-height:1.55;color:var(--teal2);white-space:pre-line;margin:10px 0 20px}
+.typedOptions{display:grid;gap:9px}
+.typedOptions>div{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:13px;padding:12px 14px}
+.typedOptions b{width:34px;height:34px;border-radius:9px;background:var(--soft);display:grid;place-items:center;color:var(--teal2)}
+.typedOptions span{padding-top:4px;white-space:pre-line;color:#46565a}
+.passageBox{background:#f7faf9;border:1px solid #d7e8e5;border-radius:16px;padding:18px;margin-bottom:22px;max-height:430px;overflow:auto}
+.passageHead{display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:-18px;background:#f7faf9;padding:10px 0;z-index:2}
+.passageHead button{border:0;background:none;color:var(--mag);font-weight:850;cursor:pointer}
+.passageBox p{color:#46565a;margin:0 0 13px;line-height:1.75}
+.hybridHint{margin:16px 0 0;background:#fff4f8;border-left:4px solid var(--mag);padding:12px 14px;border-radius:0 11px 11px 0;color:#745267;font-size:.82rem}
+.sourceQuestionView{margin-top:5px}
+@media(max-width:700px){.textQuestionView{padding:18px 14px}.typedOptions>div{grid-template-columns:36px 1fr;padding:10px}.passageBox{max-height:360px}}
+
+/* ================= HSci 208 Finals Vault ================= */
+.hsciHero,.hsciFinalsHero{background:linear-gradient(125deg,#073f49,#0b6f79 56%,#8c005c);color:#fff}.hsciHero h1,.hsciFinalsHero h1{color:#fff}.hsciHero p,.hsciFinalsHero p{color:#d8eeee}
+.hsciSystemGrid{align-items:stretch}.hsciSystemCard{display:block;border:1px solid var(--line);border-radius:24px;padding:27px;text-decoration:none;background:#fff;transition:.2s}.hsciSystemCard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.hsciSystemCard>span{display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:var(--soft);color:var(--teal);font-weight:900}.hsciSystemCard h3{font-size:1.5rem;color:var(--teal2);margin:17px 0 3px}.hsciSystemCard b{color:var(--mag)}.hsciSystemCard p{color:var(--muted)}.hsciSystemCard.ms>span{background:var(--pink);color:var(--mag)}
+.sourceExamGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.sourceExamGrid article{border:1px solid var(--line);border-radius:18px;padding:21px}.sourceExamGrid small{color:var(--mag);font-weight:900;letter-spacing:.09em}.sourceExamGrid h3{color:var(--teal2);font-size:1.05rem;margin:8px 0}.sourceExamGrid p{font-size:.82rem;color:var(--muted)}.sourceExamGrid a{color:var(--teal);font-weight:850;text-decoration:none}
+.practiceSetupGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.practiceSetupCard{border:1px solid var(--line);border-radius:23px;padding:25px;background:#fff;display:flex;flex-direction:column;gap:10px}.practiceSetupCard .modeNo{font-size:.67rem;color:var(--mag);letter-spacing:.13em;font-weight:900}.practiceSetupCard h3{font-size:1.45rem;color:var(--teal2);margin:0}.practiceSetupCard p{color:var(--muted);margin:0}.practiceSetupCard label{display:grid;gap:5px;color:var(--teal2);font-size:.74rem;font-weight:850}.practiceSetupCard select,.practiceSetupCard input{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}.practiceSetupCard .btn{margin-top:auto}.keyInfo{background:linear-gradient(135deg,var(--pink),#fff)}.systemChecks{display:flex;gap:10px;flex-wrap:wrap}.systemChecks label{display:flex!important;align-items:center;gap:6px;background:#f7faf9;border:1px solid var(--line);border-radius:999px;padding:7px 10px}.systemChecks input{width:auto!important}
+.pastExamGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.pastExamCard{background:#fff;border:1px solid #d8e8e6;border-radius:19px;padding:20px;display:flex;flex-direction:column}.examCardTop{display:flex;justify-content:space-between;gap:10px}.examCardTop span{color:var(--mag);font-size:.65rem;font-weight:900;letter-spacing:.08em}.examCardTop b{font-size:.7rem;color:var(--teal2)}.pastExamCard h3{color:var(--teal2);font-size:1.12rem;margin:10px 0 4px}.pastExamCard p{color:var(--muted);font-size:.83rem;flex:1}.examStatus{font-size:.62rem;font-weight:900;letter-spacing:.07em;border-radius:999px;padding:6px 8px;align-self:flex-start;margin:8px 0}.examStatus.keyed{background:#e1f4ed;color:#1c7257}.examStatus.unkeyed{background:#fff1f6;color:var(--mag)}.pastExamCard button{border:0;background:none;color:var(--teal);font-weight:900;text-align:left;padding:10px 0 0;cursor:pointer}
+.hsciRunner{position:relative;min-height:100vh;background:#f7faf9}.runnerOpen .hsciRunner{display:block}.sourceBadgeRow{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:15px 0}.sourceBadgeRow a{color:var(--teal);font-size:.75rem;font-weight:850;text-decoration:none}.keyBadge{display:inline-block;border-radius:999px;padding:6px 9px;font-size:.65rem;font-weight:900;letter-spacing:.06em}.keyBadge.keyed{background:#e2f4ed;color:#1c7257}.keyBadge.unkeyed{background:#fff1f6;color:var(--mag)}
+.hsciQuestionCard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}.hsciQuestionCard>small{color:var(--mag);font-weight:900;font-size:.68rem;letter-spacing:.08em}.hsciQuestionCard h3{font-size:1.3rem;line-height:1.5;color:var(--teal2);white-space:pre-line}.hsciOptions{display:grid;gap:9px}.hsciOptions button{display:grid;grid-template-columns:40px 1fr;gap:11px;text-align:left;align-items:start;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px;cursor:pointer;color:#4c5b5f}.hsciOptions button b{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft);color:var(--teal2)}.hsciOptions button.selected{border-color:var(--teal);background:#f0f9f8}.hsciOptions button.selected b{background:var(--teal);color:#fff}
+.recallBox{display:grid;gap:10px}.recallBox textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px;min-height:110px;resize:vertical}.recallBox .btn{justify-self:start}.recallBox>div{background:var(--soft);border-radius:12px;padding:13px;color:var(--teal2)}
+.sourceKeyFeedback{display:none;margin-top:15px;padding:12px;border-radius:11px}.sourceKeyFeedback.show{display:block}.sourceKeyFeedback.ok{background:#e1f4ed;color:#1c7257}.sourceKeyFeedback.bad{background:#fae8ef;color:var(--mag)}
+.keyedScoreBox{display:grid;gap:4px;background:var(--soft);border-radius:14px;padding:15px;margin:15px 0}.keyedScoreBox b{color:var(--teal2)}.keyedScoreBox span{color:var(--muted);font-size:.78rem}
+.hsci208Feature{background:linear-gradient(135deg,#fff,#f5faf9)}
+@media(max-width:900px){.sourceExamGrid,.pastExamGrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.practiceSetupGrid,.sourceExamGrid,.pastExamGrid{grid-template-columns:1fr}.sourceBadgeRow{align-items:flex-start;flex-direction:column}.hsciQuestionCard{padding:19px 14px}.hsciOptions button{grid-template-columns:34px 1fr}}
+
+.runnerOpen>main>section.hsciRunner{display:block!important}
+
+/* HSci 208 answer-key provenance + rationales */
+.keyBadge.reviewKey{background:#e9f4ff;color:#245e8d}
+.keyBadge.pendingKey{background:#fff3d9;color:#835d0d}
+.sourceKeyFeedback.neutral{background:#fff3d9;color:#835d0d}
+.checkHsciBtn{margin-top:14px}
+.rationalePanel{display:none;margin-top:12px;border-left:4px solid var(--teal);background:#f2f8f7;border-radius:0 13px 13px 0;padding:14px 16px}
+.rationalePanel.show{display:block}
+.rationalePanel>span{display:block;font-size:.64rem;letter-spacing:.12em;font-weight:900;color:var(--mag);margin-bottom:5px}
+.rationalePanel p{color:#405457;margin:0;line-height:1.65}
+.rationalePanel small{display:block;margin-top:9px;color:#81516e;font-weight:700}
+.keyedScoreBox small{color:#758587;line-height:1.5}
