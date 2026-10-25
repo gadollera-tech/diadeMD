@@ -60,9 +60,15 @@ function render(){
   $('#hsciSourceBadge').className=q.key_status==='source'?'keyBadge keyed':q.key_status==='review'?'keyBadge reviewKey':'keyBadge pendingKey';
   $('#hsciSourceDownload').href=sourceBase+set.source;
 
-  $('#hsciOptions').hidden=q.type!=='mcq';
-  $('#recallBox').hidden=q.type!=='recall';
-  $('#essayBox').hidden=q.type!=='essay';
+  const optionsBox=$('#hsciOptions'), recallBox=$('#recallBox'), essayBox=$('#essayBox');
+  optionsBox.hidden=q.type!=='mcq';
+  recallBox.hidden=q.type!=='recall';
+  essayBox.hidden=q.type!=='essay';
+
+  // Ensure non-applicable response controls never appear for MCQs.
+  optionsBox.style.display=q.type==='mcq'?'grid':'none';
+  recallBox.style.display=q.type==='recall'?'grid':'none';
+  essayBox.style.display=q.type==='essay'?'grid':'none';
 
   if(q.type==='mcq'){
     const sel=sess.responses[q.id]||'';
