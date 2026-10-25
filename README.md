@@ -134,3 +134,11 @@ The MeduDemy teal/magenta identity, source-key provenance, private access gate, 
 ## v9.1 — MCQ response cleanup
 
 MCQ items now display only clickable answer choices. Textareas are shown only for true recall/open-response items.
+
+## v9.2 definitive MCQ fix
+HSci 208 now has one dynamic response area:
+- MCQ: choice buttons only
+- Recall: recall input only
+- Essay: open-response input only
+
+The practice page also uses `?v=9.2` cache-busting for GitHub Pages/browser asset refresh.

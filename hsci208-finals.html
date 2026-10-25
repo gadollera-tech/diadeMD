@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HSci 208 Finals Practice | MeduDemy</title><meta name="theme-color" content="#0b6f79">
-<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css">
-<script defer src="js/access.js"></script><script defer src="js/data.js"></script><script defer src="js/hsci208-data.js"></script><script defer src="js/app.js"></script><script defer src="js/hsci208-practice.js"></script>
+<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css?v=9.2">
+<script defer src="js/access.js"></script><script defer src="js/data.js"></script><script defer src="js/hsci208-data.js?v=9.2"></script><script defer src="js/app.js?v=9.2"></script><script defer src="js/hsci208-practice.js?v=9.2"></script>
 </head><body data-page="hsci208-finals"><a class="skip" href="#main">Skip to content</a><header><div class="container nav"><a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="nmat.html">NMAT</a><a href="medschool.html" class="active">Med School</a><a href="ple.html">PLE</a><a href="reviewers.html">Reviewers</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a><a href="pricing.html">Premium</a></nav><button class="plan" id="planChip"><i></i><span data-plan>Free</span></button></div></header>
 <main id="main">
 <section class="pageHero hsciFinalsHero"><div class="container">
@@ -51,13 +51,7 @@
 
     <article class="duoQuestionCard">
       <h2 id="hsciPrompt"></h2>
-      <div id="hsciOptions" class="duoChoices"></div>
-      <div id="recallBox" class="recallBox" hidden>
-        <textarea id="recallInput" placeholder="Type your recall answer..."></textarea>
-        <button class="btn outline" id="revealRecall">Reveal source answer</button>
-        <div id="recallAnswer" hidden></div>
-      </div>
-      <div id="essayBox" class="recallBox" hidden><textarea id="essayInput" rows="8" placeholder="Write your open-response answer..."></textarea></div>
+      <div id="hsciResponseArea"></div>
       <div class="sourceKeyFeedback" id="sourceKeyFeedback"></div>
       <div class="rationalePanel" id="rationalePanel"></div>
     </article>
