@@ -150,3 +150,8 @@ html.accessLocked,html.accessLocked body{overflow:hidden}
 
 /* Response-control cleanup: MCQs show choices only */
 #recallBox[hidden], #essayBox[hidden], #hsciOptions[hidden] { display:none !important; }
+
+/* v9.2 single-response renderer */
+#hsciResponseArea:empty { display:none; }
+#hsciResponseArea .duoChoices { display:grid; }
+#hsciResponseArea .recallBox { display:grid; margin-top:8px; }
