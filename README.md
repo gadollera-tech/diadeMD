@@ -64,3 +64,54 @@ Added `nmat-practice.html` with:
 The source document does not provide time limits in the included general directions, so the practice timers are intentionally user-defined and are not labeled as official NMAT timing.
 
 Source: Center for Educational Measurement, Inc. (CEM), 2014 practice set. The included copyright notice permits personal/educational reproduction with CEM identified as source, while prohibiting commercial/for-profit redistribution without written permission.
+
+
+## NMAT v6 hybrid display
+
+The NMAT practice interface now prefers **typed text** when the source PDF text is sufficiently reliable.
+
+Current converted items:
+- Text-first: 218
+- Hybrid typed text + original visual: 31
+- Image-first: 31
+
+Display rules:
+- Verbal analogies are typed.
+- Verbal reading-comprehension questions are typed and include extracted passage text.
+- Inductive Reasoning and Perceptual Acuity stay image-first because the figures are essential.
+- Quantitative uses text-first only for the clearly readable word-problem block; equation/table-heavy items remain image-first.
+- Biology, Physics, Social Science, and Chemistry use typed text when extraction is clean, with original-page fallback for figure/table/diagram-dependent items.
+- Every typed/hybrid item still has an **Original page** button for source verification.
+
+
+## HSci 208 Finals Practice
+
+Added:
+- `hsci208.html` — course/finals hub
+- `hsci208-finals.html` — interactive previous-exam practice
+- `js/hsci208-data.js` — source-derived question pool
+- `js/hsci208-practice.js` — practice/timer/mix engine
+- `assets/references/hsci208-finals/` — original uploaded source files
+
+Current pool: 256 items
+- Integumentary: 70
+- Musculoskeletal / foundations: 40
+- Immune: 146
+
+Answer-key policy:
+- `quiz-MS.pdf` contains source-provided answers. Those source-keyed items can be checked/scored.
+- The uploaded Word exam files do not provide an explicit answer key. MeduDemy preserves them as authentic practice sets and does **not** invent correct answers.
+- The Immune Physiology 55–60 complement-cascade illustration is preserved as an open-response self-review item.
+
+
+## HSci 208 v8 — answer keys + rationales
+
+Answer provenance is now shown in the interface:
+- **SOURCE KEY:** 30 items whose answers were explicitly present in the uploaded source.
+- **MEDUDEMY REVIEW KEY:** 225 items where a study answer and concise rationale were added because the source file had no explicit key.
+- **INSTRUCTOR CONFIRMATION RECOMMENDED:** 1 ambiguous item intentionally left unscored.
+
+Important:
+- Review keys are study aids, not represented as professor-provided official keys.
+- The MSK source answer concerning T-tubules in smooth muscle is preserved as written, but the rationale visibly notes that standard physiology generally describes smooth muscle as lacking true T-tubules and using caveolae.
+- Timed mode hides rationales until submission; untimed mode allows `Check answer & rationale`.

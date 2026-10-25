@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/style.css">
 <script defer src="js/access.js"></script>
 <script defer src="js/data.js"></script>
-<script defer src="js/nmat-practice-data.js"></script>
+<script defer src="js/nmat-practice-data.js"></script><script defer src="js/nmat-practice-text-data.js"></script>
 <script defer src="js/app.js"></script>
 <script defer src="js/nmat-practice.js"></script>
 </head>
@@ -22,7 +22,7 @@
     <div class="crumbs"><a href="nmat.html">NMAT</a><span>›</span><b>Practice Tests</b></div>
     <span class="eyebrow light">CEM PRACTICE SET • PART I + PART II</span>
     <h1>Practice it your way.</h1>
-    <p>Use the uploaded 2014 CEM practice set as an untimed drill, a custom-timed section, or a full mock-style session. The source PDF itself does not specify time limits here, so all timers on this page are custom practice timers—not official NMAT timing.</p>
+    <p>Use the uploaded 2014 CEM practice set as an untimed drill, a custom-timed section, or a full mock-style session. Text-readable items are typed directly into the interface, while figure-, diagram-, table-, and formatting-dependent items keep the original source page available. The source PDF itself does not specify time limits here, so all timers are custom practice timers—not official NMAT timing.</p>
     <div class="actions"><a class="btn lightbtn" href="#modes">Choose a mode</a><a class="btn ghost" href="assets/references/nmat/cem-practice-set/CEM_NMAT_Practice_Set_Part_1_and_2_2014.pdf" download>Download source PDF</a></div>
   </div>
 </section>
@@ -102,11 +102,31 @@
         <button class="markBtn" id="markQuestion">☆ Mark for review</button>
       </div>
 
-      <div class="sourcePageToolbar">
-        <span id="sourcePageLabel">Source page</span>
-        <div><button id="zoomOut">−</button><span id="zoomLabel">100%</span><button id="zoomIn">+</button><a id="openPage" target="_blank">Open page ↗</a></div>
+      <div class="questionDisplaySwitch" id="questionDisplaySwitch">
+        <button class="active" data-view="text">Aa Text</button>
+        <button data-view="source">▧ Original page</button>
       </div>
-      <div class="sourcePageViewport"><img id="sourcePageImage" alt="Source practice-set page"></div>
+
+      <article class="textQuestionView" id="textQuestionView">
+        <div class="passageBox" id="passageBox" hidden>
+          <div class="passageHead"><span class="eyebrow">READING PASSAGE</span><button id="collapsePassage">Hide passage</button></div>
+          <div id="passageText"></div>
+        </div>
+        <div class="typedQuestion">
+          <small id="typedQuestionMeta"></small>
+          <h3 id="typedQuestionStem"></h3>
+          <div class="typedOptions" id="typedOptions"></div>
+          <p class="hybridHint" id="hybridHint" hidden>This item depends on a figure, table, diagram, or formatting from the original page. Use the source view together with the typed text.</p>
+        </div>
+      </article>
+
+      <article class="sourceQuestionView" id="sourceQuestionView" hidden>
+        <div class="sourcePageToolbar">
+          <span id="sourcePageLabel">Source page</span>
+          <div><button id="zoomOut">−</button><span id="zoomLabel">100%</span><button id="zoomIn">+</button><a id="openPage" target="_blank">Open page ↗</a></div>
+        </div>
+        <div class="sourcePageViewport"><img id="sourcePageImage" alt="Source practice-set page"></div>
+      </article>
 
       <div class="answerPanel">
         <p>Select your answer for <b id="answerQuestionLabel">Question 1</b>.</p>

@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HSci 208 Finals Practice | MeduDemy</title><meta name="theme-color" content="#0b6f79">
+<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css">
+<script defer src="js/access.js"></script><script defer src="js/data.js"></script><script defer src="js/hsci208-data.js"></script><script defer src="js/app.js"></script><script defer src="js/hsci208-practice.js"></script>
+</head><body data-page="hsci208-finals"><a class="skip" href="#main">Skip to content</a><header><div class="container nav"><a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="nmat.html">NMAT</a><a href="medschool.html" class="active">Med School</a><a href="ple.html">PLE</a><a href="reviewers.html">Reviewers</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a><a href="pricing.html">Premium</a></nav><button class="plan" id="planChip"><i></i><span data-plan>Free</span></button></div></header>
+<main id="main">
+<section class="pageHero hsciFinalsHero"><div class="container">
+<div class="crumbs"><a href="medschool.html">Med School</a><span>›</span><a href="hsci208.html">HSci 208</a><span>›</span><b>Finals Practice</b></div>
+<span class="eyebrow light">PRIVATE FINALS PRACTICE</span><h1>HSci 208 Practice Tests</h1>
+<p>Previous exams turned into an interactive practice vault with answer keys and rationales. MSK answers already present in the uploaded file stay labeled <b>Source Key</b>; keys added for the other exams are labeled <b>MeduDemy Review Key</b>.</p>
+</div></section>
+
+<section class="section" id="setup"><div class="container">
+<div class="practiceSetupGrid">
+<article class="practiceSetupCard"><span class="modeNo">01</span><h3>Previous Exam</h3><p>Take one uploaded exam exactly as its own set.</p><label>Exam<select id="setSelect"></select></label><button class="btn" id="startSet">Start untimed</button></article>
+<article class="practiceSetupCard featuredMode"><span class="modeNo">02</span><h3>Timed Exam</h3><p>Choose a source exam and set your own finals-practice timer.</p><label>Exam<select id="timedSetSelect"></select></label><label>Minutes<input id="timedMinutesHsci" type="number" min="1" max="300" value="30"></label><button class="btn" id="startTimedHsci">Start timed</button></article>
+<article class="practiceSetupCard"><span class="modeNo">03</span><h3>Finals Mix</h3><p>Randomize questions across one or more HSci 208 systems.</p><div class="systemChecks"><label><input type="checkbox" value="Integumentary" checked> Integumentary</label><label><input type="checkbox" value="Musculoskeletal" checked> Musculoskeletal</label><label><input type="checkbox" value="Immune" checked> Immune</label></div><label>Number of items<input id="mixCount" type="number" min="10" max="256" value="50"></label><button class="btn" id="startMix">Build 50-item mix</button></article>
+<article class="practiceSetupCard keyInfo"><span class="modeNo">KEY STATUS</span><h3>Source-faithful scoring</h3><p><b>Musculoskeletal PDF:</b> source-provided answers are available. Relationship/modified-TF items are auto-scored; recall items use reveal-and-self-check.</p><p><b>Word exam sets:</b> no explicit answer key was included, so selections are saved but not labeled correct/incorrect.</p></article>
+</div>
+</div></section>
+
+<section class="section tint"><div class="container">
+<div class="heading"><span class="eyebrow">SOURCE SETS</span><h2>Choose by system</h2></div>
+<div class="pastExamGrid" id="pastExamGrid"></div>
+</div></section>
+
+<section class="hsciRunner" id="hsciRunner" hidden>
+<div class="runnerTop"><div><a href="#" id="exitHsci">← Exit</a><span id="hsciMode"></span></div><div class="runnerTimer" id="hsciTimer">Untimed</div><div><span id="hsciProgress"></span><button id="submitHsciTop">Submit</button></div></div>
+<div class="runnerLayout">
+<aside class="runnerSide"><span class="eyebrow">HSci 208</span><h2 id="hsciRunnerTitle"></h2><p id="hsciRunnerSubtitle"></p><div class="runnerStats"><span><small>Answered</small><b id="hsciAnswered">0</b></span><span><small>Marked</small><b id="hsciMarked">0</b></span></div><div class="questionPalette" id="hsciPalette"></div><button class="btn outline fullBtn" id="submitHsciSide">Submit session</button></aside>
+<section class="runnerQuestion">
+<div class="questionHeader"><div><span class="eyebrow" id="hsciSystemLabel"></span><h2 id="hsciQuestionNumber"></h2></div><button class="markBtn" id="markHsci">☆ Mark for review</button></div>
+<div class="sourceBadgeRow"><span id="hsciSourceBadge"></span><a id="hsciSourceDownload" download>Original file ↗</a></div>
+<article class="hsciQuestionCard">
+<small id="hsciSourceNumber"></small><h3 id="hsciPrompt"></h3>
+<div id="hsciOptions" class="hsciOptions"></div><button class="btn outline checkHsciBtn" id="checkHsciAnswer">Check answer & rationale</button>
+<div id="recallBox" class="recallBox" hidden><textarea id="recallInput" placeholder="Type your recall answer here..."></textarea><button class="btn outline" id="revealRecall">Reveal source answer</button><div id="recallAnswer" hidden></div></div>
+<div id="essayBox" class="recallBox" hidden><textarea id="essayInput" rows="8" placeholder="Sketch/describe your answer here for self-review..."></textarea></div>
+<div class="sourceKeyFeedback" id="sourceKeyFeedback"></div><div class="rationalePanel" id="rationalePanel"></div>
+</article>
+<div class="runnerActions"><button class="btn outline" id="hsciPrev">← Previous</button><button class="btn" id="hsciNext">Next →</button></div>
+</section></div></section>
+
+<dialog class="dialog resultDialog" id="hsciResultDialog"><button class="close">×</button><span class="eyebrow">FINALS PRACTICE RESULTS</span><h2 id="hsciResultTitle">Session complete</h2><div class="resultHero"><b id="hsciCompletion">0 / 0</b><span>answered</span></div><div id="keyedScoreBox" class="keyedScoreBox"></div><div class="resultBreakdown" id="hsciBreakdown"></div><p id="hsciResultNote"></p><div class="actions"><button class="btn" id="hsciReview">Review session</button><button class="btn outline" id="hsciDone">Done</button></div></dialog>
+</main><footer><div class="container foot"><div class="footbrand"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"><p>An ongoing medical-school vault for reviewers, QBank sets, references, files, and learning experiments.</p></div><div><b>Study</b><a href="medschool.html">Med School</a><a href="hsci208.html">HSci 208</a><a href="reviewers.html">Reviewers</a></div><div><b>Platform</b><a href="dashboard.html">Dashboard</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a></div><div><b>Trust</b><a href="resources.html">Resources</a><a href="about.html">About</a></div></div><div class="container footbottom"><span>© <span data-year></span> MeduDemy</span><span>Learn. Review. Become.</span></div></footer><div class="toast" id="toast"></div></body></html>
