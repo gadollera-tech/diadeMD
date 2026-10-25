@@ -60,28 +60,38 @@ function render(){
   $('#hsciSourceBadge').className=q.key_status==='source'?'keyBadge keyed':q.key_status==='review'?'keyBadge reviewKey':'keyBadge pendingKey';
   $('#hsciSourceDownload').href=sourceBase+set.source;
 
-  const optionsBox=$('#hsciOptions'), recallBox=$('#recallBox'), essayBox=$('#essayBox');
-  optionsBox.hidden=q.type!=='mcq';
-  recallBox.hidden=q.type!=='recall';
-  essayBox.hidden=q.type!=='essay';
-
-  // Ensure non-applicable response controls never appear for MCQs.
-  optionsBox.style.display=q.type==='mcq'?'grid':'none';
-  recallBox.style.display=q.type==='recall'?'grid':'none';
-  essayBox.style.display=q.type==='essay'?'grid':'none';
+  const responseArea=$('#hsciResponseArea');
+  responseArea.innerHTML='';
 
   if(q.type==='mcq'){
     const sel=sess.responses[q.id]||'';
-    $('#hsciOptions').innerHTML=(q.options||[]).map(o=>`<button class="${sel===o.label?'selected':''}" data-label="${esc(o.label)}"><b>${esc(o.label)}</b><span>${esc(o.text)}</span></button>`).join('');
-    $('#hsciOptions').querySelectorAll('button').forEach(b=>b.onclick=()=>{sess.responses[q.id]=b.dataset.label;render();const h=$('#duoFeedbackHint');if(h)h.textContent='Ready to check?';});
-  }
-  if(q.type==='recall'){
+    responseArea.innerHTML=`<div id="hsciOptions" class="duoChoices">${
+      (q.options||[]).map(o=>`<button class="${sel===o.label?'selected':''}" data-label="${esc(o.label)}"><b>${esc(o.label)}</b><span>${esc(o.text)}</span></button>`).join('')
+    }</div>`;
+    responseArea.querySelectorAll('#hsciOptions button').forEach(b=>b.onclick=()=>{
+      sess.responses[q.id]=b.dataset.label;
+      render();
+      const h=$('#duoFeedbackHint'); if(h) h.textContent='Ready to check?';
+    });
+  } else if(q.type==='recall'){
+    responseArea.innerHTML=`
+      <div id="recallBox" class="recallBox">
+        <textarea id="recallInput" placeholder="Type your recall answer..."></textarea>
+        <button class="btn outline" id="revealRecall">${sess.revealed[q.id]?'Hide source answer':'Reveal source answer'}</button>
+        <div id="recallAnswer" ${sess.revealed[q.id]?'':'hidden'}></div>
+      </div>`;
     $('#recallInput').value=sess.responses[q.id]||'';
-    $('#recallAnswer').hidden=!sess.revealed[q.id];
+    $('#recallInput').oninput=e=>{sess.responses[q.id]=e.target.value};
     $('#recallAnswer').innerHTML=`<b>Source answer:</b> ${esc(q.answer||'')}<p>${esc(q.rationale||'')}</p>${q.key_note?`<small>${esc(q.key_note)}</small>`:''}`;
-    $('#revealRecall').textContent=sess.revealed[q.id]?'Hide source answer':'Reveal source answer';
+    $('#revealRecall').onclick=()=>{sess.revealed[q.id]=!sess.revealed[q.id];render()};
+  } else if(q.type==='essay'){
+    responseArea.innerHTML=`
+      <div id="essayBox" class="recallBox">
+        <textarea id="essayInput" rows="8" placeholder="Write your open-response answer..."></textarea>
+      </div>`;
+    $('#essayInput').value=sess.responses[q.id]||'';
+    $('#essayInput').oninput=e=>{sess.responses[q.id]=e.target.value};
   }
-  if(q.type==='essay') $('#essayInput').value=sess.responses[q.id]||'';
 
   const fb=$('#sourceKeyFeedback'), rp=$('#rationalePanel');
   fb.innerHTML='';fb.className='sourceKeyFeedback';rp.innerHTML='';rp.className='rationalePanel';
@@ -101,8 +111,11 @@ function render(){
       rp.innerHTML=`<span>RATIONALE</span><p>${esc(q.rationale)}</p>${q.key_note?`<small>${esc(q.key_note)}</small>`:''}`;
     }
   }
-  $('#checkHsciAnswer').hidden=q.type!=='mcq'||sess.mode==='timed'||sess.submitted;
-  $('#checkHsciAnswer').textContent=sess.checked[q.id]?'Hide answer & rationale':'Check answer & rationale';
+  const cb=$('#checkHsciAnswer');
+  if(cb){
+    cb.style.display=(q.type==='mcq' && sess.mode!=='timed' && !sess.submitted)?'inline-flex':'none';
+    cb.textContent=sess.checked[q.id]?'Checked ✓':'Check answer & rationale';
+  }
 
   $('#markHsci').textContent=sess.marked[q.id]?'★ Marked for review':'☆ Mark for review';
   $('#hsciPrev').disabled=sess.index===0;
@@ -177,10 +190,7 @@ $('#hsciNext').onclick=()=>{
   }
   if(sess.index<sess.questions.length-1){sess.index++;render();const h=$('#duoFeedbackHint');if(h)h.textContent='Choose the best answer.'}
   else submit(false)
-};
-$('#recallInput').oninput=e=>{sess.responses[current().id]=e.target.value};
-$('#essayInput').oninput=e=>{sess.responses[current().id]=e.target.value};
-$('#revealRecall').onclick=()=>{const q=current();sess.revealed[q.id]=!sess.revealed[q.id];render()};
+};sess.revealed[q.id]=!sess.revealed[q.id];render()};
 $('#submitHsciTop').onclick=$('#submitHsciSide').onclick=()=>submit(false);
 $('#exitHsci').onclick=e=>{e.preventDefault();if(confirm('Exit this practice session?')){clearInterval(timer);$('#hsciRunner').hidden=true;document.body.classList.remove('runnerOpen');window.scrollTo(0,0)}};
 $('#hsciResultDialog .close').onclick=$('#hsciDone').onclick=()=>{$('#hsciResultDialog').close();$('#hsciRunner').hidden=true;document.body.classList.remove('runnerOpen');window.scrollTo(0,0)};
