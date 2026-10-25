@@ -30,7 +30,7 @@ function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Ma
 
 function start(mode,questions,title,minutes){
   clearInterval(timer);
-  sess={mode,questions:cloneQuestions(questions),title,index:0,responses:{},marked:{},revealed:{},checked:{},started:Date.now(),seconds:minutes?minutes*60:null,submitted:false};
+  sess={mode,questions:cloneQuestions(questions),title,index:0,responses:{},marked:{},revealed:{},checked:{},xpAwarded:{},sessionXP:0,started:Date.now(),seconds:minutes?minutes*60:null,submitted:false};
   $('#hsciRunner').hidden=false;document.body.classList.add('runnerOpen');window.scrollTo(0,0);
   $('#hsciMode').textContent=mode==='mix'?'FINALS MIX':mode==='timed'?'TIMED PREVIOUS EXAM':'UNTIMED PREVIOUS EXAM';
   if(sess.seconds!==null){tick();timer=setInterval(()=>{sess.seconds--;tick();if(sess.seconds<=0){clearInterval(timer);submit(true)}},1000)}else $('#hsciTimer').textContent='Untimed';
@@ -50,6 +50,8 @@ function render(){
   $('#hsciRunnerTitle').textContent=sess.title;
   $('#hsciRunnerSubtitle').textContent=`${sess.questions.length} items in this session`;
   $('#hsciProgress').textContent=`${sess.index+1} / ${sess.questions.length}`;
+  const pf=$('#duoProgressFill'); if(pf) pf.style.width=`${((sess.index+1)/sess.questions.length)*100}%`;
+  const sx=$('#duoSessionXP'); if(sx) sx.textContent=sess.sessionXP||0;
   $('#hsciSystemLabel').textContent=q.system.toUpperCase();
   $('#hsciQuestionNumber').textContent=`Question ${sess.index+1}`;
   $('#hsciSourceNumber').textContent=`SOURCE ITEM ${q.source_number} • ${set.title}`;
@@ -65,7 +67,7 @@ function render(){
   if(q.type==='mcq'){
     const sel=sess.responses[q.id]||'';
     $('#hsciOptions').innerHTML=(q.options||[]).map(o=>`<button class="${sel===o.label?'selected':''}" data-label="${esc(o.label)}"><b>${esc(o.label)}</b><span>${esc(o.text)}</span></button>`).join('');
-    $('#hsciOptions').querySelectorAll('button').forEach(b=>b.onclick=()=>{sess.responses[q.id]=b.dataset.label;render()});
+    $('#hsciOptions').querySelectorAll('button').forEach(b=>b.onclick=()=>{sess.responses[q.id]=b.dataset.label;render();const h=$('#duoFeedbackHint');if(h)h.textContent='Ready to check?';});
   }
   if(q.type==='recall'){
     $('#recallInput').value=sess.responses[q.id]||'';
@@ -132,7 +134,7 @@ function submit(auto=false){
       <small>Review keys are study aids added to questions whose uploaded file did not include an explicit answer key.</small>`:
       `<b>No scorable answer key in this session.</b><span>Use the rationale/instructor flag for self-review.</span>`;
   $('#hsciBreakdown').innerHTML=Object.entries(bySys).map(([name,x])=>`<div><span>${name}</span><b>${x.answered} / ${x.total}</b><small>answered</small></div>`).join('');
-  $('#hsciResultNote').textContent='Use Review Session to revisit every answer and rationale. Source Key and MeduDemy Review Key items are kept visibly distinct.';
+  $('#hsciResultNote').textContent=`You earned ${sess.sessionXP||0} XP this session. Review every answer and rationale before your next round.`;
   $('#hsciResultDialog').showModal();
 }
 
@@ -147,10 +149,29 @@ $('#startMix').onclick=()=>{
   start('mix',shuffle(pool).slice(0,n),`Mixed Finals • ${systems.join(' + ')}`,null);
 };
 $('#mixCount').oninput=()=>{$('#startMix').textContent=`Build ${Math.max(10,+$('#mixCount').value||50)}-item mix`};
-$('#checkHsciAnswer').onclick=()=>{const q=current();if(!sess.responses[q.id]){alert('Choose an answer first.');return}sess.checked[q.id]=!sess.checked[q.id];render()};
+$('#checkHsciAnswer').onclick=()=>{
+  const q=current();
+  if(!sess.responses[q.id]){const h=$('#duoFeedbackHint');if(h)h.textContent='Choose an answer first.';return}
+  const firstCheck=!sess.checked[q.id];
+  sess.checked[q.id]=true;
+  if(firstCheck && q.answer && q.key_status!=='pending' && sess.responses[q.id]===q.answer && !sess.xpAwarded[q.id]){
+    sess.xpAwarded[q.id]=true;sess.sessionXP+=5;
+    const total=Number(localStorage.getItem('medudemyXP')||0)+5;localStorage.setItem('medudemyXP',String(total));
+  }
+  render();
+  const h=$('#duoFeedbackHint');
+  if(h) h.textContent=(q.answer&&sess.responses[q.id]===q.answer)?'Nice! +5 XP':'Review the rationale, then continue.';
+};
 $('#markHsci').onclick=()=>{const q=current();sess.marked[q.id]=!sess.marked[q.id];render()};
 $('#hsciPrev').onclick=()=>{if(sess.index>0){sess.index--;render()}};
-$('#hsciNext').onclick=()=>{if(sess.index<sess.questions.length-1){sess.index++;render()}else submit(false)};
+$('#hsciNext').onclick=()=>{
+  const q=current();
+  if(q.type==='mcq' && sess.responses[q.id] && !sess.checked[q.id] && sess.mode!=='timed'){
+    $('#checkHsciAnswer').click(); return;
+  }
+  if(sess.index<sess.questions.length-1){sess.index++;render();const h=$('#duoFeedbackHint');if(h)h.textContent='Choose the best answer.'}
+  else submit(false)
+};
 $('#recallInput').oninput=e=>{sess.responses[current().id]=e.target.value};
 $('#essayInput').oninput=e=>{sess.responses[current().id]=e.target.value};
 $('#revealRecall').onclick=()=>{const q=current();sess.revealed[q.id]=!sess.revealed[q.id];render()};
@@ -160,4 +181,11 @@ $('#hsciResultDialog .close').onclick=$('#hsciDone').onclick=()=>{$('#hsciResult
 $('#hsciReview').onclick=()=>{$('#hsciResultDialog').close();sess.index=0;render()};
 
 setup();
+const params=new URLSearchParams(location.search);
+const setParam=params.get('set'), systemParam=params.get('system'), modeParam=params.get('mode');
+if(setParam && byId(setParam)){const s=byId(setParam);start('practice',s.questions,s.title,null)}
+else if(systemParam && modeParam==='mix'){
+  const pool=D.sets.filter(s=>s.system===systemParam).flatMap(s=>s.questions).filter(q=>q.type!=='essay');
+  start('mix',shuffle(pool).slice(0,Math.min(30,pool.length)),`${systemParam} Challenge`,null);
+}
 })();
