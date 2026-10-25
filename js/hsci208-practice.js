@@ -157,10 +157,19 @@ function submit(auto=false){
   $('#hsciResultDialog').showModal();
 }
 
-$('#startSet').onclick=()=>{const s=byId($('#setSelect').value);start('practice',s.questions,s.title,null)};
-$('#startTimedHsci').onclick=()=>{const s=byId($('#timedSetSelect').value);start('timed',s.questions,s.title,Math.max(1,+$('#timedMinutesHsci').value||30))};
+$('#startSet').onclick=()=>{
+  const s=byId($('#setSelect').value);
+  if(!s){alert('Please choose an exam first.');return}
+  start('practice',s.questions,s.title,null);
+};
+$('#startTimedHsci').onclick=()=>{
+  const s=byId($('#timedSetSelect').value);
+  if(!s){alert('Please choose an exam first.');return}
+  start('timed',s.questions,s.title,Math.max(1,+$('#timedMinutesHsci').value||30));
+};
 $('#startMix').onclick=()=>{
   const systems=[...document.querySelectorAll('.systemChecks input:checked')].map(x=>x.value);
+  if(!systems.length){alert('Choose at least one system.');return}
   let pool=D.sets.filter(s=>systems.includes(s.system)).flatMap(s=>s.questions);
   // Open-response essay item is excluded from random mixed drills.
   pool=pool.filter(q=>q.type!=='essay');
@@ -190,7 +199,7 @@ $('#hsciNext').onclick=()=>{
   }
   if(sess.index<sess.questions.length-1){sess.index++;render();const h=$('#duoFeedbackHint');if(h)h.textContent='Choose the best answer.'}
   else submit(false)
-};sess.revealed[q.id]=!sess.revealed[q.id];render()};
+};
 $('#submitHsciTop').onclick=$('#submitHsciSide').onclick=()=>submit(false);
 $('#exitHsci').onclick=e=>{e.preventDefault();if(confirm('Exit this practice session?')){clearInterval(timer);$('#hsciRunner').hidden=true;document.body.classList.remove('runnerOpen');window.scrollTo(0,0)}};
 $('#hsciResultDialog .close').onclick=$('#hsciDone').onclick=()=>{$('#hsciResultDialog').close();$('#hsciRunner').hidden=true;document.body.classList.remove('runnerOpen');window.scrollTo(0,0)};
