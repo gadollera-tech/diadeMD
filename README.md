@@ -154,3 +154,26 @@ Fixed a JavaScript syntax error in `hsci208-practice.js` that prevented:
 
 Also added static fallback exam options and `?v=9.3` cache-busting.
 The JS file passes `node --check`.
+
+## v9.4 — ARAL-verified Biochemistry EC/IC
+The existing 10 Biochemistry EC & IC questions were upgraded in place using the user's ARAL Attempt 2 review (10/10, 100%):
+- option order matches ARAL
+- correct answers are marked ARAL VERIFIED KEY
+- concise rationales are derived from the ARAL feedback
+
+## v10 — HSci 201: The Human Body (Anatomy)
+Added a first-year HSci 201 anatomy vault with 733 mapped practice items (708 source-keyed; 25 Long Quiz I items have no printed key in the uploaded quiz).
+- Previous/compiled quizzes: 184
+- BRS comprehensive: 102
+- Snell regional review: 447
+
+PDF strategy: BRS/Snell items use original rendered question pages with separate answer keys, preserving radiographs, CTs, matching diagrams, and complex page layout. Text-first compilation questions remain normal clickable MCQs.
+
+
+## v10.1 — HSci 201 source-key repair
+- Recovered all 60 Dr. Ade Pelvis & Perineum answers from the bolded correct choices in the original compiled DOCX.
+- Recovered BRS answers for Q27, Q76, and Q77 from the BRS Answers & Explanations section.
+- HSci 201 now has 708/733 source-supported keys.
+- Previous/Compiled Quizzes now have 159/184 source-supported keys.
+- The remaining 25 unkeyed items are exactly Long Quiz I; its uploaded quiz pages do not print an answer key.
+- Added clearer source badges: COMPILED SOURCE KEY, BRS SOURCE KEY, SNELL SOURCE KEY, and NO SOURCE KEY IN FILE.
