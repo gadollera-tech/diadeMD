@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   };
   const courses=[
     ['hsci201','HSci 201','The Human Body','hsci201.html'],
+    ['hsci202','HSci 202','Neuroanatomy','hsci202.html'],
     ['hsci208','HSci 208','Integumentary • Musculoskeletal • Immune','hsci208.html'],
     ['nmat','NMAT','Practice & review','nmat.html']
   ];
