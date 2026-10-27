@@ -167,3 +167,26 @@ html.accessLocked,html.accessLocked body{overflow:hidden}
 #hs201Visual:not([hidden]){margin:12px 0 20px}
 #hs201Visual .sourcePageViewport{max-height:55vh}
 #hs201ResponseArea .duoChoices button span{white-space:normal;line-height:1.45}
+
+/* ================= v11 final polish ================= */
+:root{--page-max:1180px}
+body{background:#fbfcfb}
+.container{max-width:var(--page-max)}
+header{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(8,79,88,.08)}
+.nav{min-height:74px}.nav .brand img{max-height:48px}.nav nav{gap:4px}.nav nav a{padding:8px 10px;border-radius:10px;font-size:.85rem;font-weight:760}.nav nav a:hover,.nav nav a.active{background:#eef7f6;color:var(--teal2)}
+.pageHero{padding:66px 0}.pageHero h1{max-width:850px;letter-spacing:-.035em}.pageHero p{max-width:760px}
+.heading{max-width:780px;margin-bottom:28px}.heading h2{letter-spacing:-.025em}.heading p{max-width:680px}
+.section{padding-top:64px;padding-bottom:64px}
+.card,.nmatModeCard,.practiceSetupCard,.pastExamCard,.hsciSystemCard,.sourceExamGrid article,.nmatSectionCard{box-shadow:0 6px 20px rgba(15,69,73,.035)}
+.btn,.duoPrimary,.duoCheck,.duoContinue{letter-spacing:-.01em}
+.finalFoot{padding-top:34px;padding-bottom:28px}.finalFoot .footbrand p{max-width:260px;color:var(--muted)}
+footer{margin-top:50px;background:#fff;border-top:1px solid var(--line)}
+.eyebrow{letter-spacing:.1em}
+.crumbs{font-size:.76rem}
+.sourceNoteSection{padding-top:42px}
+.keyBadge{white-space:nowrap}
+@media(max-width:900px){.nav nav{gap:0}.nav nav a{font-size:.8rem;padding:8px}.pageHero{padding:48px 0}}
+@media(max-width:700px){.section{padding-top:44px;padding-bottom:44px}.pageHero{padding:38px 0}.nav{min-height:66px}.nav .brand img{max-height:43px}.finalFoot{grid-template-columns:1fr 1fr}.finalFoot .footbrand{grid-column:1/-1}}
+
+/* v11 final access cleanup */
+.locked,.qlock,#planChip,[data-plan]{display:none!important}
