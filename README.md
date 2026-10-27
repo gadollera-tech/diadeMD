@@ -193,3 +193,13 @@ For study use:
 - 22 items now have a clearly labeled `MEDUDEMY REVIEW KEY` and concise rationale.
 - 3 malformed items (Q4, Q9, Q10) are labeled `REVIEW KEY • FLAWED ITEM` and excluded from percentage scoring.
 - These added keys are not represented as professor/source-provided answers.
+
+## v11 — Final polish pass
+- Simplified main navigation.
+- Removed Free/Pro/Premium controls from the main product experience.
+- De-emphasized experimental AI and payment pages.
+- Removed repetitive prototype/vault language.
+- Shortened course-page copy and CTAs.
+- Standardized headers, footers, spacing, and card treatment.
+- Preserved all HSci 201 / HSci 208 / NMAT questions, keys, rationales, source images, progress, XP, and private access gate.
+- Added v11 cache-busting to CSS/JS references.

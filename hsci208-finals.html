@@ -1,33 +1,45 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HSci 208 Finals Practice | MeduDemy</title><meta name="theme-color" content="#0b6f79">
-<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css?v=9.4">
-<script defer src="js/access.js"></script><script defer src="js/data.js"></script><script defer src="js/hsci208-data.js?v=9.4"></script><script defer src="js/app.js?v=9.4"></script><script defer src="js/hsci208-practice.js?v=9.4"></script>
-</head><body data-page="hsci208-finals"><a class="skip" href="#main">Skip to content</a><header><div class="container nav"><a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="nmat.html">NMAT</a><a href="medschool.html" class="active">Med School</a><a href="ple.html">PLE</a><a href="reviewers.html">Reviewers</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a><a href="pricing.html">Premium</a></nav><button class="plan" id="planChip"><i></i><span data-plan>Free</span></button></div></header>
+<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css?v=11.2">
+<script defer src="js/access.js?v=11.2"></script><script defer src="js/data.js?v=11.2"></script><script defer src="js/hsci208-data.js?v=11.2"></script><script defer src="js/app.js?v=11.2"></script><script defer src="js/hsci208-practice.js?v=11.2"></script>
+</head><body data-page="hsci208-finals"><a class="skip" href="#main">Skip to content</a><header><div class="container nav">
+<a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a>
+<button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="medschool.html">Med School</a>
+<a href="nmat.html">NMAT</a>
+<a href="qbank.html">QBank</a>
+<a href="reviewers.html">Reviewers</a>
+<a href="about.html">About</a>
+</nav>
+</div></header>
 <main id="main">
 <section class="pageHero hsciFinalsHero"><div class="container">
 <div class="crumbs"><a href="medschool.html">Med School</a><span>›</span><a href="hsci208.html">HSci 208</a><span>›</span><b>Finals Practice</b></div>
-<span class="eyebrow light">PRIVATE FINALS PRACTICE</span><h1>HSci 208 Practice Tests</h1>
-<p>Previous exams turned into an interactive practice vault with answer keys and rationales. MSK answers already present in the uploaded file stay labeled <b>Source Key</b>; keys added for the other exams are labeled <b>MeduDemy Review Key</b>.</p>
+<span class="eyebrow light">PRIVATE FINALS PRACTICE</span><h1>HSci 208 Practice</h1>
+<p>Practice previous exams, timed sets, or mixed finals questions with answer keys and rationales.</p>
 </div></section>
 
 <section class="section" id="setup"><div class="container">
 <div class="practiceSetupGrid">
-<article class="practiceSetupCard"><span class="modeNo">01</span><h3>Previous Exam</h3><p>Take one uploaded exam exactly as its own set.</p><label>Exam<select id="setSelect"><option value="integ-quiz-1">Integumentary • Doc Ade — Integ Quiz 1 — 35 items</option>
+<article class="practiceSetupCard"><span class="modeNo">01</span><h3>Previous Exam</h3><p>Practice one previous exam.</p><label>Exam<select id="setSelect"><option value="integ-quiz-1">Integumentary • Doc Ade — Integ Quiz 1 — 35 items</option>
 <option value="integ-quiz-2">Integumentary • Doc Ade — Integ Quiz 2 — 35 items</option>
 <option value="ms-source-keyed">Musculoskeletal • Musculoskeletal & Membrane Physiology Quiz — 30 items</option>
 <option value="biochem-ec-ic">Musculoskeletal • Doc Charlie — Biochemistry of EC & IC Communication — 10 items</option>
 <option value="immune-embryo">Immune • Doc Ade — Immune System Quiz — 55 items</option>
 <option value="immunoglobulins">Immune • Doc Charlie — Immunoglobulins Exam — 40 items</option>
 <option value="immune-physio">Immune • Doc Medith — Immune System Exam — 51 items</option></select></label><button class="btn" id="startSet">Start untimed</button></article>
-<article class="practiceSetupCard featuredMode"><span class="modeNo">02</span><h3>Timed Exam</h3><p>Choose a source exam and set your own finals-practice timer.</p><label>Exam<select id="timedSetSelect"><option value="integ-quiz-1">Integumentary • Doc Ade — Integ Quiz 1 — 35 items</option>
+<article class="practiceSetupCard featuredMode"><span class="modeNo">02</span><h3>Timed Exam</h3><p>Choose an exam and set a timer.</p><label>Exam<select id="timedSetSelect"><option value="integ-quiz-1">Integumentary • Doc Ade — Integ Quiz 1 — 35 items</option>
 <option value="integ-quiz-2">Integumentary • Doc Ade — Integ Quiz 2 — 35 items</option>
 <option value="ms-source-keyed">Musculoskeletal • Musculoskeletal & Membrane Physiology Quiz — 30 items</option>
 <option value="biochem-ec-ic">Musculoskeletal • Doc Charlie — Biochemistry of EC & IC Communication — 10 items</option>
 <option value="immune-embryo">Immune • Doc Ade — Immune System Quiz — 55 items</option>
 <option value="immunoglobulins">Immune • Doc Charlie — Immunoglobulins Exam — 40 items</option>
 <option value="immune-physio">Immune • Doc Medith — Immune System Exam — 51 items</option></select></label><label>Minutes<input id="timedMinutesHsci" type="number" min="1" max="300" value="30"></label><button class="btn" id="startTimedHsci">Start timed</button></article>
-<article class="practiceSetupCard"><span class="modeNo">03</span><h3>Finals Mix</h3><p>Randomize questions across one or more HSci 208 systems.</p><div class="systemChecks"><label><input type="checkbox" value="Integumentary" checked> Integumentary</label><label><input type="checkbox" value="Musculoskeletal" checked> Musculoskeletal</label><label><input type="checkbox" value="Immune" checked> Immune</label></div><label>Number of items<input id="mixCount" type="number" min="10" max="256" value="50"></label><button class="btn" id="startMix">Build 50-item mix</button></article>
+<article class="practiceSetupCard"><span class="modeNo">03</span><h3>Finals Mix</h3><p>Mix questions across HSci 208 systems.</p><div class="systemChecks"><label><input type="checkbox" value="Integumentary" checked> Integumentary</label><label><input type="checkbox" value="Musculoskeletal" checked> Musculoskeletal</label><label><input type="checkbox" value="Immune" checked> Immune</label></div><label>Number of items<input id="mixCount" type="number" min="10" max="256" value="50"></label><button class="btn" id="startMix">Build 50-item mix</button></article>
 <article class="practiceSetupCard keyInfo">
 <span class="modeNo">ANSWER KEY PROVENANCE</span>
 <h3>Keys + rationales, clearly labeled.</h3>
@@ -91,4 +103,11 @@
 </section>
 
 <dialog class="dialog resultDialog" id="hsciResultDialog"><button class="close">×</button><span class="eyebrow">FINALS PRACTICE RESULTS</span><h2 id="hsciResultTitle">Session complete</h2><div class="resultHero"><b id="hsciCompletion">0 / 0</b><span>answered</span></div><div id="keyedScoreBox" class="keyedScoreBox"></div><div class="resultBreakdown" id="hsciBreakdown"></div><p id="hsciResultNote"></p><div class="actions"><button class="btn" id="hsciReview">Review session</button><button class="btn outline" id="hsciDone">Done</button></div></dialog>
-</main><footer><div class="container foot"><div class="footbrand"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"><p>An ongoing medical-school vault for reviewers, QBank sets, references, files, and learning experiments.</p></div><div><b>Study</b><a href="medschool.html">Med School</a><a href="hsci208.html">HSci 208</a><a href="reviewers.html">Reviewers</a></div><div><b>Platform</b><a href="dashboard.html">Dashboard</a><a href="qbank.html">QBank</a><a href="ai.html">Ask AI</a></div><div><b>Trust</b><a href="resources.html">Resources</a><a href="about.html">About</a></div></div><div class="container footbottom"><span>© <span data-year></span> MeduDemy</span><span>Learn. Review. Become.</span></div></footer><div class="toast" id="toast"></div></body></html>
+</main><footer>
+<div class="container foot finalFoot">
+<div class="footbrand"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"><p>Medical learning, organized.</p></div>
+<div><b>Study</b><a href="medschool.html">Med School</a><a href="nmat.html">NMAT</a><a href="qbank.html">QBank</a></div>
+<div><b>More</b><a href="reviewers.html">Reviewers</a><a href="resources.html">Resources</a><a href="about.html">About</a></div>
+</div>
+<div class="container footbottom"><span>© <span data-year></span> MeduDemy</span><span>Learn. Review. Become.</span></div>
+</footer><div class="toast" id="toast"></div></body></html>
