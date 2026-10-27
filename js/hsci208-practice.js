@@ -56,8 +56,8 @@ function render(){
   $('#hsciQuestionNumber').textContent=`Question ${sess.index+1}`;
   $('#hsciSourceNumber').textContent=`SOURCE ITEM ${q.source_number} • ${set.title}`;
   $('#hsciPrompt').textContent=q.prompt;
-  $('#hsciSourceBadge').textContent=q.key_status==='source'?'SOURCE KEY':q.key_status==='review'?'MEDUDEMY REVIEW KEY':'INSTRUCTOR CONFIRMATION RECOMMENDED';
-  $('#hsciSourceBadge').className=q.key_status==='source'?'keyBadge keyed':q.key_status==='review'?'keyBadge reviewKey':'keyBadge pendingKey';
+  $('#hsciSourceBadge').textContent=q.key_source==='ARAL'?'ARAL VERIFIED KEY':q.key_status==='source'?'SOURCE KEY':q.key_status==='review'?'MEDUDEMY REVIEW KEY':'INSTRUCTOR CONFIRMATION RECOMMENDED';
+  $('#hsciSourceBadge').className=q.key_source==='ARAL'?'keyBadge aralKey':q.key_status==='source'?'keyBadge keyed':q.key_status==='review'?'keyBadge reviewKey':'keyBadge pendingKey';
   $('#hsciSourceDownload').href=sourceBase+set.source;
 
   const responseArea=$('#hsciResponseArea');
