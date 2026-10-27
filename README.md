@@ -203,3 +203,18 @@ For study use:
 - Standardized headers, footers, spacing, and card treatment.
 - Preserved all HSci 201 / HSci 208 / NMAT questions, keys, rationales, source images, progress, XP, and private access gate.
 - Added v11 cache-busting to CSS/JS references.
+
+## v12 — HSci 202 Neuroanatomy
+
+Added `HSci 202 — Neuroanatomy`:
+- 83 source-keyed text MCQs with source rationales
+  - Part I: 5
+  - Part II: 10
+  - Part III: 8
+  - Part IV: 10
+  - Part V: 50
+- 9 structured recall prompts from the compiled MCQ file
+- 20 simple recall prompts from `NEUROANATOMY RECALLS`
+- 6 unscored study reminders whose source did not provide an answer
+
+Recall is deliberately not converted to multiple choice. It uses reveal-answer + Know/Review self-rating.

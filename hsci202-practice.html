@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HSci 202 Neuroanatomy Practice | MeduDemy</title><link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css?v=12.0"><script defer src="js/access.js?v=12.0"></script><script defer src="js/data.js?v=12.0"></script><script defer src="js/hsci202-data.js?v=12.0"></script><script defer src="js/app.js?v=12.0"></script><script defer src="js/hsci202-practice.js?v=12.0"></script></head><body data-page="hsci202-practice"><header><div class="container nav">
+<a class="brand" href="index.html"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"></a>
+<button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+<nav><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="medschool.html">Med School</a><a href="nmat.html">NMAT</a><a href="qbank.html">QBank</a><a href="reviewers.html">Reviewers</a><a href="about.html">About</a></nav>
+</div></header><main>
+<section class="pageHero hsci202Hero"><div class="container"><div class="crumbs"><a href="medschool.html">Med School</a><span>›</span><a href="hsci202.html">HSci 202</a><span>›</span><b>Practice</b></div><span class="eyebrow light">NEUROANATOMY PRACTICE</span><h1>HSci 202 Practice</h1><p>Choose MCQs or recall. Your recall bank stays recall-only.</p></div></section>
+<section class="section" id="setup"><div class="container"><div class="practiceSetupGrid">
+<article class="practiceSetupCard"><span class="modeNo">01</span><h3>MCQ set</h3><label>Section<select id="hs202Set"></select></label><button class="btn" id="startHs202Set">Start MCQs</button></article>
+<article class="practiceSetupCard featuredMode"><span class="modeNo">02</span><h3>Mixed MCQs</h3><p>Randomize across all five compiled sections.</p><label>Number of items<input id="hs202MixCount" type="number" min="10" max="83" value="30"></label><button class="btn" id="startHs202Mix">Build 30-item mix</button></article>
+<article class="practiceSetupCard"><span class="modeNo">03</span><h3>Simple Recall</h3><p>No choices. Reveal the source answer, then mark Know or Review.</p><button class="btn" id="startSimpleRecall">Start 20 recalls</button></article>
+<article class="practiceSetupCard"><span class="modeNo">04</span><h3>Structured Recall</h3><p>Pathway sequence, matching, and clinical recall from the compiled file.</p><button class="btn" id="startStructuredRecall">Start 9 recalls</button></article>
+</div></div></section>
+<section class="section tint"><div class="container"><div class="heading"><span class="eyebrow">SETS</span><h2>Compiled MCQ sections</h2></div><div class="pastExamGrid" id="hs202SetCards"></div></div></section>
+
+<section class="hsciRunner duoRunner" id="hs202Runner" hidden>
+<div class="duoRunnerTop"><button class="iconExit" id="exitHs202">×</button><div class="duoProgressTrack"><div id="hs202ProgressFill"></div></div><div class="duoTopStat">⚡ <b id="hs202SessionXP">0</b></div></div>
+<div class="duoQuestionShell"><div class="duoQuestionMeta"><span id="hs202Mode">PRACTICE</span><span>•</span><span id="hs202Progress"></span></div>
+<div class="duoPromptHead"><div><span class="eyebrow" id="hs202SectionLabel"></span><h1 id="hs202QuestionNo"></h1></div><button class="duoMark" id="hs202Mark">☆</button></div>
+<div class="duoSourceRow"><small id="hs202SourceNumber"></small><span id="hs202KeyBadge"></span><a id="hs202Download" download>Source ↗</a></div>
+<article class="duoQuestionCard"><h2 id="hs202Prompt"></h2><div id="hs202ResponseArea"></div><div class="sourceKeyFeedback" id="hs202Feedback"></div><div class="rationalePanel" id="hs202Rationale"></div></article>
+<div class="duoBottomBar"><div class="duoFeedbackHint" id="hs202Hint">Choose the best answer.</div><div><button class="duoSecondary" id="hs202Prev">Back</button><button class="duoCheck" id="hs202Check">Check</button><button class="duoContinue" id="hs202Next">Continue</button></div></div>
+</div></section>
+
+<dialog class="dialog resultDialog" id="hs202Result"><button class="close">×</button><span class="eyebrow">HSci 202</span><h2>Session complete</h2><div class="resultHero"><b id="hs202Score"></b><span id="hs202Pct"></span></div><div id="hs202ResultMeta" class="keyedScoreBox"></div><div class="actions"><button class="btn" id="hs202Review">Review session</button><button class="btn outline" id="hs202Done">Done</button></div></dialog>
+</main><footer><div class="container foot finalFoot"><div class="footbrand"><img src="assets/images/medudemy-logo.png" alt="MeduDemy"><p>Medical learning, organized.</p></div><div><b>Study</b><a href="medschool.html">Med School</a><a href="nmat.html">NMAT</a><a href="qbank.html">QBank</a></div><div><b>More</b><a href="reviewers.html">Reviewers</a><a href="resources.html">Resources</a><a href="about.html">About</a></div></div><div class="container footbottom"><span>© <span data-year></span> MeduDemy</span><span>Learn. Review. Become.</span></div></footer><div class="toast" id="toast"></div></body></html>
