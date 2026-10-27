@@ -155,3 +155,10 @@ html.accessLocked,html.accessLocked body{overflow:hidden}
 #hsciResponseArea:empty { display:none; }
 #hsciResponseArea .duoChoices { display:grid; }
 #hsciResponseArea .recallBox { display:grid; margin-top:8px; }
+
+.keyBadge.aralKey{background:#e8f7f3;color:#0b6f79;border:1px solid #b7ddd7}
+
+/* ================= HSci 201 Anatomy Vault ================= */
+.hsci201Hero{background:linear-gradient(125deg,#063f49,#0b6f79 57%,#8c005c);color:#fff}.hsci201Hero h1{color:#fff}.hsci201Hero p{color:#d9eeee}.hsci201Feature{background:linear-gradient(135deg,#fff,#f5faf9)}
+.hsci201Sources{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.hsci201Sources>a{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-bottom-width:5px;border-radius:21px;padding:23px;color:inherit}.hsci201Sources>a:hover{border-color:#9bcfca;transform:translateY(-2px)}.hsci201Sources span{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--soft);color:var(--teal);font-weight:900}.hsci201Sources h3{color:var(--teal2);margin:13px 0 5px}.hsci201Sources p{color:var(--muted);font-size:.86rem}.hs201Visual{margin:0 0 18px}.hs201Visual .sourcePageViewport{max-height:55vh}.visualInstruction{font-size:.78rem;color:var(--muted);margin:9px 0}.letterPad{grid-template-columns:repeat(8,1fr)!important}.letterPad button{display:grid!important;grid-template-columns:1fr!important;place-items:center!important;padding:10px!important;min-height:58px}.letterPad button b{margin:0!important}.sourceKeyFeedback.neutral{background:#fff3d9;color:#835d0d}
+@media(max-width:800px){.hsci201Sources{grid-template-columns:1fr}.letterPad{grid-template-columns:repeat(4,1fr)!important}.hs201Visual .sourcePageViewport{max-height:48vh}}
