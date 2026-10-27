@@ -177,3 +177,19 @@ PDF strategy: BRS/Snell items use original rendered question pages with separate
 - Previous/Compiled Quizzes now have 159/184 source-supported keys.
 - The remaining 25 unkeyed items are exactly Long Quiz I; its uploaded quiz pages do not print an answer key.
 - Added clearer source badges: COMPILED SOURCE KEY, BRS SOURCE KEY, SNELL SOURCE KEY, and NO SOURCE KEY IN FILE.
+
+
+## v10.2 — HSci 201 text-first conversion
+- Converted ordinary BRS and Snell questions from PDF-page-only presentation into typed question stems and typed answer choices.
+- Text MCQs: 575 / 733 total HSci 201 items.
+- Text + source-image items: 158 / 733. These are restricted to questions where a radiograph, CT, MRI, angiogram, or labeled figure is necessary.
+- Previous/compiled quiz questions remain text-first.
+- Source answer provenance and the v10.1 key repairs are preserved.
+- Extraction fallbacks retained for: brs-comprehensive Q27, brs-comprehensive Q86, brs-comprehensive Q87, brs-comprehensive Q94, brs-comprehensive Q97, snell-thorax Q29, snell-thorax Q30, snell-thorax Q31, snell-thorax Q33, snell-thorax Q34, snell-thorax Q35
+
+## v10.3 — HSci 201 Long Quiz I review key
+The 25 Long Quiz I items did not include a printed answer key in the uploaded source.
+For study use:
+- 22 items now have a clearly labeled `MEDUDEMY REVIEW KEY` and concise rationale.
+- 3 malformed items (Q4, Q9, Q10) are labeled `REVIEW KEY • FLAWED ITEM` and excluded from percentage scoring.
+- These added keys are not represented as professor/source-provided answers.
