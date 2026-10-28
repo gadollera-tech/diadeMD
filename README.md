@@ -218,3 +218,14 @@ Added `HSci 202 — Neuroanatomy`:
 - 6 unscored study reminders whose source did not provide an answer
 
 Recall is deliberately not converted to multiple choice. It uses reveal-answer + Know/Review self-rating.
+
+## v12.1 — Histology Review MCQs
+
+Added under Anatomy & Histology → Histology:
+- Immune System Histology Review — 30 MCQs
+- Musculoskeletal System Histology Review — 30 MCQs
+- Mixed Histology Review mode
+
+These are explicitly labeled REVIEW MCQs, not previous exams.
+Immune rationales and MSK Q1–14 rationales are preserved from the supplied review set.
+The supplied Musculoskeletal answer/rationale table ended at Q14; Q15–30 were completed as clearly labeled MeduDemy review keys/rationales.

@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Histology Review MCQs | MeduDemy</title>
+<link rel="icon" href="assets/images/medudemy-icon.png"><link rel="stylesheet" href="css/style.css?v=12.1">
+<script defer src="js/access.js?v=12.1"></script><script defer src="js/data.js?v=12.1"></script><script defer src="js/histology-review-data.js?v=12.1"></script><script defer src="js/app.js?v=12.1"></script><script defer src="js/histology-review-practice.js?v=12.1"></script>
+</head><body data-page="histology-review"><header><div class="container nav">
+<a class="brand" href="index.html"><img alt="MeduDemy" src="assets/images/medudemy-logo.png"/></a>
+<button aria-expanded="false" aria-label="Open navigation" class="menu">☰</button>
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="medschool.html">Med School</a>
+<a href="nmat.html">NMAT</a>
+<a href="qbank.html">QBank</a>
+<a href="reviewers.html">Reviewers</a>
+<a href="about.html">About</a>
+</nav>
+</div></header><main>
+<section class="pageHero histReviewHero"><div class="container">
+<div class="crumbs"><a href="medschool.html">Med School</a><span>›</span><a href="anatomy-histology.html">Anatomy & Histology</a><span>›</span><a href="histology.html">Histology</a><span>›</span><b>Review MCQs</b></div>
+<span class="eyebrow light">HISTOLOGY • REVIEW MCQs</span><h1>Histology Finals Review</h1>
+<p>High-yield review questions with answer checking and concise rationales.</p>
+</div></section>
+<section class="section"><div class="container"><div class="practiceSetupGrid">
+<article class="practiceSetupCard"><span class="modeNo">01</span><h3>Immune System</h3><p>Lymphoid organs, immune cells, MALT, and clinical correlations.</p><b>30 MCQs</b><button class="btn" data-start="hist-immune-review">Start Immune review</button></article>
+<article class="practiceSetupCard"><span class="modeNo">02</span><h3>Musculoskeletal System</h3><p>Muscle, sarcomeres, cartilage, bone, and ossification.</p><b>30 MCQs</b><button class="btn" data-start="hist-msk-review">Start MSK review</button></article>
+<article class="practiceSetupCard featuredMode"><span class="modeNo">03</span><h3>Mixed Histology</h3><p>Random questions from both review sets.</p><label>Number of items<input id="histMixCount" type="number" min="10" max="60" value="30"></label><button class="btn" id="histStartMix">Build 30-item mix</button></article>
+<article class="practiceSetupCard keyInfo"><span class="modeNo">REVIEW SET</span><h3>Not a previous exam</h3><p>These are review MCQs. They are kept separate from your past-exam banks.</p></article>
+</div></div></section>
+
+<section class="hsciRunner duoRunner" id="histReviewRunner" hidden>
+<div class="duoRunnerTop"><button class="iconExit" id="histExit">×</button><div class="duoProgressTrack"><div id="histProgressFill"></div></div><div class="duoTopStat">⚡ <b id="histXP">0</b></div></div>
+<div class="duoQuestionShell">
+<div class="duoQuestionMeta"><span>HISTOLOGY REVIEW</span><span>•</span><span id="histProgress"></span></div>
+<div class="duoPromptHead"><div><span class="eyebrow" id="histSystem"></span><h1 id="histQuestionNo"></h1></div><button class="duoMark" id="histMark">☆</button></div>
+<div class="duoSourceRow"><small id="histSourceLabel">REVIEW MCQ</small><span id="histKeyBadge" class="keyBadge reviewKey">REVIEW KEY</span></div>
+<article class="duoQuestionCard"><h2 id="histPrompt"></h2><div id="histChoices" class="duoChoices"></div><div class="sourceKeyFeedback" id="histFeedback"></div><div class="rationalePanel" id="histRationale"></div></article>
+<div class="duoBottomBar"><div class="duoFeedbackHint" id="histHint">Choose the best answer.</div><div><button class="duoSecondary" id="histPrev">Back</button><button class="duoCheck" id="histCheck">Check</button><button class="duoContinue" id="histNext">Continue</button></div></div>
+</div></section>
+
+<dialog class="dialog resultDialog" id="histResult"><button class="close">×</button><span class="eyebrow">HISTOLOGY REVIEW</span><h2>Session complete</h2><div class="resultHero"><b id="histScore"></b><span id="histPct"></span></div><div id="histResultMeta" class="keyedScoreBox"></div><div class="actions"><button class="btn" id="histReviewAgain">Review session</button><button class="btn outline" id="histDone">Done</button></div></dialog>
+</main><footer>
+<div class="container foot finalFoot">
+<div class="footbrand"><img alt="MeduDemy" src="assets/images/medudemy-logo.png"/><p>Medical learning, organized.</p></div>
+<div><b>Study</b><a href="medschool.html">Med School</a><a href="nmat.html">NMAT</a><a href="qbank.html">QBank</a></div>
+<div><b>More</b><a href="reviewers.html">Reviewers</a><a href="resources.html">Resources</a><a href="about.html">About</a></div>
+</div>
+<div class="container footbottom"><span>© <span data-year=""></span> MeduDemy</span><span>Learn. Review. Become.</span></div>
+</footer><div class="toast" id="toast"></div></body></html>
